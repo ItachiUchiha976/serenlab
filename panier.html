@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mon Panier — SérénLab</title>
+  <meta name="description" content="Votre panier SérénLab. Finalisez votre commande de produits bien-être.">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<div class="topbar">Livraison offerte en France — Expédition EU 3-7 jours</div>
+
+<header class="header">
+  <div class="container">
+    <div class="header__inner">
+      <a href="index.html" class="logo">Sérén<em>Lab</em></a>
+      <nav><ul class="nav-list">
+        <li><a href="index.html" class="nav-link">Accueil</a></li>
+        <li><a href="produit-masque-led.html" class="nav-link">Masque LED</a></li>
+        <li><a href="produit-machine-sons.html" class="nav-link">Sons d'ambiance</a></li>
+        <li><a href="produit-oreiller-gel.html" class="nav-link">Oreiller gel</a></li>
+        <li><a href="a-propos.html" class="nav-link">À propos</a></li>
+      </ul></nav>
+      <div class="header-actions">
+        <a href="panier.html" class="cart-btn" aria-label="Panier">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
+          <span class="cart-count" style="display:none">0</span>
+        </a>
+        <button class="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
+      </div>
+    </div>
+  </div>
+</header>
+<nav class="mobile-menu">
+  <button class="mobile-menu__close">&#x2715;</button>
+  <a href="index.html">Accueil</a>
+  <a href="produit-masque-led.html">Masque LED</a>
+  <a href="produit-machine-sons.html">Machine sons d'ambiance</a>
+  <a href="produit-oreiller-gel.html">Oreiller gel rafraîchissant</a>
+  <a href="produit-lampe-lecture.html">Lampe de lecture</a>
+  <a href="a-propos.html">À propos</a>
+</nav>
+
+<section class="cart-section">
+  <div class="container">
+    <h1 style="margin-bottom:2rem;font-size:clamp(1.5rem,4vw,2rem)">Mon panier</h1>
+
+    <!-- Panier vide -->
+    <div id="cart-empty" class="cart-empty" style="display:none">
+      <div class="cart-empty__icon" aria-hidden="true">🛒</div>
+      <h2 style="font-size:1.4rem;margin-bottom:.75rem">Votre panier est vide</h2>
+      <p style="margin-bottom:1.75rem">Découvrez nos produits bien-être et commencez votre rituel SérénLab.</p>
+      <a href="index.html#best-sellers" class="btn btn--primary btn--lg">Voir nos produits</a>
+    </div>
+
+    <!-- Contenu panier -->
+    <div class="cart-grid">
+
+      <!-- Articles -->
+      <div>
+        <div id="cart-list" class="cart-list"></div>
+
+        <!-- Continuer les achats -->
+        <div style="margin-top:1.25rem">
+          <a href="index.html#best-sellers" class="btn btn--secondary">
+            &#8592; Continuer les achats
+          </a>
+        </div>
+      </div>
+
+      <!-- Résumé + checkout -->
+      <div id="cart-summary" style="display:none">
+        <div class="cart-summary">
+          <h3 style="font-family:var(--f-title);font-size:1.2rem;margin-bottom:1rem">Récapitulatif</h3>
+          <div class="summary-row">
+            <span>Sous-total</span>
+            <span id="cart-subtotal">0,00 €</span>
+          </div>
+          <div class="summary-row">
+            <span>Livraison</span>
+            <span id="cart-shipping" style="color:var(--vert);font-weight:600">Gratuite</span>
+          </div>
+          <div class="summary-row">
+            <strong class="summary-total">Total</strong>
+            <strong class="summary-total" id="cart-total">0,00 €</strong>
+          </div>
+
+          <!-- Infos livraison -->
+          <div style="margin-top:1rem;padding:.85rem;background:var(--bg-light);border-radius:var(--r)">
+            <div style="display:flex;align-items:center;gap:.5rem;font-size:.8rem;color:var(--text-med)">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
+              Expédition depuis entrepôt EU — 3 à 7 jours ouvrés en France
+            </div>
+          </div>
+        </div>
+
+        <!-- CHECKOUT STUB -->
+        <div id="checkout-stub" class="checkout-stub">
+          <h3>Confirmer mon intention d'achat</h3>
+          <p>Le paiement en ligne sera disponible très prochainement. En attendant, laissez votre email et nous vous contacterons dès l'ouverture pour finaliser votre commande.</p>
+
+          <form id="checkout-form" class="checkout-form" novalidate>
+            <input type="text" name="nom" placeholder="Votre prénom (optionnel)" autocomplete="given-name">
+            <input type="email" name="email" placeholder="Votre adresse email *" required autocomplete="email">
+            <input type="tel" name="tel" placeholder="Téléphone (optionnel)" autocomplete="tel">
+
+            <div style="display:flex;align-items:flex-start;gap:.6rem;margin:.25rem 0">
+              <input type="checkbox" id="cgv-check" required style="margin-top:.2rem;flex-shrink:0;accent-color:var(--bleu)">
+              <label for="cgv-check" style="font-size:.82rem;color:var(--text-med)">
+                J'ai lu et j'accepte les <a href="cgv.html" target="_blank" style="color:var(--bleu)">CGV</a> et la <a href="cgv.html#confidentialite" target="_blank" style="color:var(--bleu)">politique de confidentialité</a>
+              </label>
+            </div>
+
+            <button type="submit" class="btn btn--primary btn--full">
+              Réserver ma place &rarr;
+            </button>
+          </form>
+
+          <p style="font-size:.76rem;color:var(--text-light);margin-top:.75rem;text-align:center">
+            Aucun paiement prélevé maintenant &bull; Vous recevrez un email de confirmation &bull; Annulation libre
+          </p>
+        </div>
+
+        <!-- SUCCESS STATE -->
+        <div id="checkout-success" class="checkout-success">
+          <div style="font-size:3rem;margin-bottom:.75rem">✅</div>
+          <h3>Merci pour votre intérêt !</h3>
+          <p style="margin-bottom:1rem">Votre demande a bien été enregistrée. Nous vous enverrons un email dès que le paiement en ligne sera disponible pour finaliser votre commande.</p>
+          <p style="font-size:.85rem;color:var(--text-med);margin-bottom:1.5rem">En attendant, découvrez Havre Sonore sur YouTube — des heures de sons d'ambiance gratuits pour améliorer vos nuits.</p>
+          <a href="https://www.youtube.com/@HavreSonore" target="_blank" rel="noopener" class="btn btn--green">
+            Découvrir Havre Sonore
+          </a>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Reassurance icons -->
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:1.25rem;margin-top:3rem;padding:1.75rem;background:var(--bg-light);border-radius:var(--r2)">
+      <div style="text-align:center">
+        <div style="font-size:1.75rem;margin-bottom:.4rem">🔒</div>
+        <div style="font-size:.82rem;font-weight:600;color:var(--text-dark)">Paiement sécurisé</div>
+        <div style="font-size:.75rem;color:var(--text-light)">Stripe &amp; PayPal (bientôt)</div>
+      </div>
+      <div style="text-align:center">
+        <div style="font-size:1.75rem;margin-bottom:.4rem">🚚</div>
+        <div style="font-size:.82rem;font-weight:600;color:var(--text-dark)">Livraison offerte</div>
+        <div style="font-size:.75rem;color:var(--text-light)">Entrepôt EU — 3-7 jours</div>
+      </div>
+      <div style="text-align:center">
+        <div style="font-size:1.75rem;margin-bottom:.4rem">↩️</div>
+        <div style="font-size:.82rem;font-weight:600;color:var(--text-dark)">Retours 30 jours</div>
+        <div style="font-size:.75rem;color:var(--text-light)">Satisfaction garantie</div>
+      </div>
+      <div style="text-align:center">
+        <div style="font-size:1.75rem;margin-bottom:.4rem">💬</div>
+        <div style="font-size:.82rem;font-weight:600;color:var(--text-dark)">Support client</div>
+        <div style="font-size:.75rem;color:var(--text-light)">Réponse sous 24h</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-logo">Sérén<em>Lab</em></div>
+        <p class="footer-desc">Votre rituel bien-être maison.</p>
+      </div>
+      <div>
+        <div class="footer-col-title">Produits</div>
+        <nav class="footer-links">
+          <a href="produit-masque-led.html">Masque LED</a>
+          <a href="produit-machine-sons.html">Machine sons</a>
+          <a href="produit-oreiller-gel.html">Oreiller gel</a>
+          <a href="produit-lampe-lecture.html">Lampe lecture</a>
+        </nav>
+      </div>
+      <div>
+        <div class="footer-col-title">Aide</div>
+        <nav class="footer-links">
+          <a href="livraison.html">Livraison &amp; retours</a>
+          <a href="cgv.html">CGV</a>
+          <a href="a-propos.html">À propos</a>
+        </nav>
+      </div>
+      <div>
+        <div class="footer-col-title">Univers</div>
+        <nav class="footer-links">
+          <a href="https://www.youtube.com/@HavreSonore" target="_blank" rel="noopener">Havre Sonore</a>
+        </nav>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p class="footer-copy">&copy; 2026 SérénLab. Tous droits réservés.</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+// Validate CGV checkbox on submit
+document.addEventListener('DOMContentLoaded', function(){
+  var form = document.getElementById('checkout-form');
+  if(form){
+    form.addEventListener('submit', function(e){
+      var check = document.getElementById('cgv-check');
+      if(check && !check.checked){
+        e.preventDefault();
+        e.stopImmediatePropagation();
+        showToast('Veuillez accepter les CGV pour continuer.');
+      }
+    }, true);
+  }
+});
+</script>
+<script src="app.js"></script>
+</body>
+</html>

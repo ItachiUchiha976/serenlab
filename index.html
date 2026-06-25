@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SérénLab — Boutique Bien-être &amp; Rituel du Soir</title>
+  <meta name="description" content="SérénLab, votre rituel bien-être maison. Masque LED, machine à sons d'ambiance, oreiller rafraîchissant, lampe de lecture. Livraison France 3-7j. Qualité sélectionnée.">
+  <meta property="og:title" content="SérénLab — Boutique Bien-être &amp; Rituel du Soir">
+  <meta property="og:description" content="Votre rituel bien-être, revisité. Produits soigneusement sélectionnés pour des nuits récupératrices et une peau éclatante.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://itachiuchiha976.github.io/serenlab/">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<!-- Annonce -->
+<div class="topbar">
+  Livraison offerte en France — Expédition depuis entrepôt EU en 3-7 jours &nbsp;·&nbsp;
+  <a href="livraison.html">En savoir plus</a>
+</div>
+
+<!-- Header -->
+<header class="header">
+  <div class="container">
+    <div class="header__inner">
+      <a href="index.html" class="logo">Sérén<em>Lab</em></a>
+      <nav aria-label="Navigation principale">
+        <ul class="nav-list">
+          <li><a href="index.html" class="nav-link active">Accueil</a></li>
+          <li><a href="produit-masque-led.html" class="nav-link">Masque LED</a></li>
+          <li><a href="produit-machine-sons.html" class="nav-link">Sons d'ambiance</a></li>
+          <li><a href="produit-oreiller-gel.html" class="nav-link">Oreiller gel</a></li>
+          <li><a href="a-propos.html" class="nav-link">À propos</a></li>
+        </ul>
+      </nav>
+      <div class="header-actions">
+        <a href="panier.html" class="cart-btn" aria-label="Panier">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/>
+            <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/>
+          </svg>
+          <span class="cart-count" style="display:none">0</span>
+        </a>
+        <button class="hamburger" aria-label="Menu" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- Mobile menu -->
+<nav class="mobile-menu" aria-label="Menu mobile">
+  <button class="mobile-menu__close" aria-label="Fermer">&#x2715;</button>
+  <a href="index.html">Accueil</a>
+  <a href="produit-masque-led.html">Masque LED</a>
+  <a href="produit-machine-sons.html">Machine sons d'ambiance</a>
+  <a href="produit-oreiller-gel.html">Oreiller gel rafraîchissant</a>
+  <a href="produit-lampe-lecture.html">Lampe de lecture</a>
+  <a href="a-propos.html">À propos</a>
+  <a href="cgv.html">CGV &amp; Mentions légales</a>
+  <a href="livraison.html">Livraison &amp; Retours</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="container">
+    <div class="hero-grid">
+      <div class="hero-content">
+        <div class="hero-badge">
+          <svg width="12" height="12" viewBox="0 0 12 12" fill="currentColor"><circle cx="6" cy="6" r="6"/></svg>
+          Nouveau — Rituel Lumière
+        </div>
+        <h1 class="hero-title">Votre rituel bien-être,<br>revisité par la <em style="font-style:normal;color:var(--bleu)">lumière</em></h1>
+        <p class="hero-sub">Des produits soigneusement sélectionnés pour transformer votre routine du soir en un véritable moment de détente. Science douce + bien-être accessible, sans se ruiner en clinique.</p>
+        <div class="hero-ctas">
+          <a href="produit-masque-led.html" class="btn btn--primary btn--lg">Découvrir le Masque LED</a>
+          <a href="#best-sellers" class="btn btn--secondary btn--lg">Tous les produits</a>
+        </div>
+        <div class="hero-trust">
+          <span class="trust-item">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+            Livraison EU 3-7 jours
+          </span>
+          <span class="trust-item">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+            Retours 30 jours
+          </span>
+          <span class="trust-item">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+            Paiement sécurisé
+          </span>
+        </div>
+      </div>
+      <div class="hero-visual" aria-hidden="true">
+        <!-- LED Mask SVG Illustration -->
+        <svg class="produit-art" viewBox="0 0 300 300" xmlns="http://www.w3.org/2000/svg">
+          <!-- Glow background -->
+          <circle cx="150" cy="155" r="110" fill="rgba(74,134,168,0.07)"/>
+          <!-- Mask body -->
+          <ellipse cx="150" cy="160" rx="100" ry="115" fill="#e6f2f8" stroke="#4a86a8" stroke-width="3"/>
+          <!-- Strap left -->
+          <path d="M50 148 Q20 158 50 168" fill="none" stroke="#b0cad9" stroke-width="12" stroke-linecap="round"/>
+          <!-- Strap right -->
+          <path d="M250 148 Q280 158 250 168" fill="none" stroke="#b0cad9" stroke-width="12" stroke-linecap="round"/>
+          <!-- Eye cutouts -->
+          <ellipse cx="112" cy="148" rx="32" ry="20" fill="white" stroke="#4a86a8" stroke-width="2"/>
+          <ellipse cx="188" cy="148" rx="32" ry="20" fill="white" stroke="#4a86a8" stroke-width="2"/>
+          <!-- LED dots red row top -->
+          <circle cx="85" cy="118" r="6" fill="#e05555" opacity="0.85"/>
+          <circle cx="105" cy="106" r="6" fill="#e05555" opacity="0.85"/>
+          <circle cx="130" cy="100" r="6" fill="#e05555" opacity="0.9"/>
+          <circle cx="150" cy="98" r="6" fill="#e05555" opacity="0.9"/>
+          <circle cx="170" cy="100" r="6" fill="#e05555" opacity="0.9"/>
+          <circle cx="195" cy="106" r="6" fill="#e05555" opacity="0.85"/>
+          <circle cx="215" cy="118" r="6" fill="#e05555" opacity="0.85"/>
+          <!-- LED dots blue row middle -->
+          <circle cx="80" cy="175" r="5.5" fill="#4a86a8" opacity="0.9"/>
+          <circle cx="98" cy="188" r="5.5" fill="#4a86a8" opacity="0.9"/>
+          <circle cx="130" cy="196" r="5.5" fill="#4a86a8" opacity="0.9"/>
+          <circle cx="150" cy="198" r="5.5" fill="#4a86a8" opacity="0.9"/>
+          <circle cx="170" cy="196" r="5.5" fill="#4a86a8" opacity="0.9"/>
+          <circle cx="202" cy="188" r="5.5" fill="#4a86a8" opacity="0.9"/>
+          <circle cx="220" cy="175" r="5.5" fill="#4a86a8" opacity="0.9"/>
+          <!-- Nose bridge -->
+          <rect x="138" y="160" width="24" height="6" rx="3" fill="#c8d8e4"/>
+          <!-- Light glow halos -->
+          <circle cx="150" cy="98" r="12" fill="#e05555" opacity="0.15"/>
+          <circle cx="150" cy="198" r="12" fill="#4a86a8" opacity="0.15"/>
+          <!-- Brand label -->
+          <rect x="108" y="228" width="84" height="22" rx="6" fill="#4a86a8"/>
+          <text x="150" y="243" text-anchor="middle" font-family="Georgia,serif" font-size="11" fill="white" font-weight="700">SérénLab</text>
+        </svg>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROMESSE -->
+<section class="section section--light">
+  <div class="container text-center">
+    <h2 class="section-title">La promesse SérénLab</h2>
+    <p class="section-sub">Chaque produit est sélectionné selon trois critères non-négociables.</p>
+    <div class="promise-grid">
+      <div class="promise-card">
+        <div class="promise-icon pi--blue" aria-hidden="true">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2z"/><path d="M12 8v4l3 3"/></svg>
+        </div>
+        <h3>Rituel, pas gadget</h3>
+        <p>Seuls les produits qui s'intègrent naturellement dans une routine quotidienne entrent dans notre sélection. Votre temps est précieux.</p>
+      </div>
+      <div class="promise-card">
+        <div class="promise-icon pi--green" aria-hidden="true">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+        </div>
+        <h3>Qualité vérifiée</h3>
+        <p>Chaque référence passe par une validation qualité rigoureuse : matériaux, fabrication, rapport qualité-prix. Pas de mauvaises surprises.</p>
+      </div>
+      <div class="promise-card">
+        <div class="promise-icon pi--beige" aria-hidden="true">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+        </div>
+        <h3>Bien-être accessible</h3>
+        <p>Les rituels haut de gamme ne doivent pas coûter une fortune. Nos prix sont pensés pour que chacun puisse prendre soin de soi au quotidien.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BEST SELLERS -->
+<section class="section" id="best-sellers">
+  <div class="container">
+    <div class="text-center">
+      <h2 class="section-title">Nos produits phares</h2>
+      <p class="section-sub">Quatre essentiels pour transformer votre routine soir et améliorer la qualité de vos nuits.</p>
+    </div>
+    <div class="products-grid">
+
+      <!-- Produit 1 : Masque LED -->
+      <div class="product-card">
+        <div class="product-card__img">
+          <span class="product-badge-hero">Best-seller</span>
+          <svg viewBox="0 0 120 100" style="width:90px;height:80px" xmlns="http://www.w3.org/2000/svg">
+            <ellipse cx="60" cy="55" rx="45" ry="38" fill="#e6f2f8" stroke="#4a86a8" stroke-width="2"/>
+            <ellipse cx="40" cy="50" rx="13" ry="8" fill="white"/>
+            <ellipse cx="80" cy="50" rx="13" ry="8" fill="white"/>
+            <circle cx="28" cy="40" r="4" fill="#e05555" opacity="0.9"/>
+            <circle cx="38" cy="35" r="4" fill="#e05555" opacity="0.9"/>
+            <circle cx="60" cy="32" r="4" fill="#e05555" opacity="0.9"/>
+            <circle cx="82" cy="35" r="4" fill="#e05555" opacity="0.9"/>
+            <circle cx="92" cy="40" r="4" fill="#e05555" opacity="0.9"/>
+            <circle cx="28" cy="65" r="4" fill="#4a86a8" opacity="0.9"/>
+            <circle cx="42" cy="72" r="4" fill="#4a86a8" opacity="0.9"/>
+            <circle cx="60" cy="75" r="4" fill="#4a86a8" opacity="0.9"/>
+            <circle cx="78" cy="72" r="4" fill="#4a86a8" opacity="0.9"/>
+            <circle cx="92" cy="65" r="4" fill="#4a86a8" opacity="0.9"/>
+          </svg>
+        </div>
+        <div class="product-card__body">
+          <div class="product-cat">Soin du visage</div>
+          <h3 class="product-card__title">Masque LED Rituel Lumière</h3>
+          <p class="product-card__desc">Plongez dans un moment de luminothérapie apaisante. LED rouge &amp; bleue pour un éclat naturel et une routine beauté d'exception.</p>
+          <div class="product-card__footer">
+            <div>
+              <span class="price-current">119,00 €</span>
+              <span class="price-shipping">Livraison offerte</span>
+            </div>
+            <a href="produit-masque-led.html" class="btn btn--primary">Voir</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Produit 2 : Machine sons -->
+      <div class="product-card">
+        <div class="product-card__img">
+          <svg viewBox="0 0 120 100" style="width:85px;height:75px" xmlns="http://www.w3.org/2000/svg">
+            <rect x="40" y="18" width="40" height="65" rx="10" fill="#e6f2f8" stroke="#4a86a8" stroke-width="2"/>
+            <circle cx="60" cy="46" r="14" fill="#c8d8e4"/>
+            <circle cx="60" cy="46" r="9" fill="#a0bece"/>
+            <circle cx="60" cy="46" r="4" fill="#4a86a8"/>
+            <path d="M82 36 Q92 46 82 56" fill="none" stroke="#4a86a8" stroke-width="2" stroke-linecap="round" opacity="0.7"/>
+            <path d="M85 30 Q98 46 85 62" fill="none" stroke="#4a86a8" stroke-width="1.5" stroke-linecap="round" opacity="0.4"/>
+            <path d="M38 36 Q28 46 38 56" fill="none" stroke="#4a86a8" stroke-width="2" stroke-linecap="round" opacity="0.7"/>
+            <path d="M35 30 Q22 46 35 62" fill="none" stroke="#4a86a8" stroke-width="1.5" stroke-linecap="round" opacity="0.4"/>
+            <circle cx="60" cy="72" r="4" fill="#7a9d7b"/>
+            <circle cx="49" cy="72" r="2.5" fill="#c8d8e4"/>
+            <circle cx="71" cy="72" r="2.5" fill="#c8d8e4"/>
+          </svg>
+        </div>
+        <div class="product-card__body">
+          <div class="product-cat">Sommeil &amp; relaxation</div>
+          <h3 class="product-card__title">Machine Sons d'Ambiance</h3>
+          <p class="product-card__desc">Pluie, forêt, bruit blanc, vagues… Retrouvez l'apaisement sonore de Havre Sonore, autonome, sans laisser YouTube tourner.</p>
+          <div class="product-card__footer">
+            <div>
+              <span class="price-current">45,00 €</span>
+              <span class="price-shipping">Livraison offerte</span>
+            </div>
+            <a href="produit-machine-sons.html" class="btn btn--primary">Voir</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Produit 3 : Oreiller gel -->
+      <div class="product-card">
+        <div class="product-card__img">
+          <svg viewBox="0 0 120 100" style="width:100px;height:80px" xmlns="http://www.w3.org/2000/svg">
+            <rect x="15" y="32" width="90" height="45" rx="18" fill="#e6f2f8" stroke="#4a86a8" stroke-width="2"/>
+            <!-- Gel layer -->
+            <rect x="20" y="42" width="80" height="25" rx="10" fill="rgba(74,134,168,0.18)"/>
+            <!-- Snowflake icon -->
+            <line x1="60" y1="47" x2="60" y2="62" stroke="#4a86a8" stroke-width="2.5" stroke-linecap="round"/>
+            <line x1="53" y1="51" x2="67" y2="58" stroke="#4a86a8" stroke-width="2" stroke-linecap="round"/>
+            <line x1="67" y1="51" x2="53" y2="58" stroke="#4a86a8" stroke-width="2" stroke-linecap="round"/>
+            <circle cx="60" cy="47" r="2.5" fill="#4a86a8"/>
+            <circle cx="60" cy="62" r="2.5" fill="#4a86a8"/>
+            <!-- Cool lines -->
+            <path d="M25 54 Q35 48 45 54" fill="none" stroke="#6ba3be" stroke-width="1.5" opacity="0.5"/>
+            <path d="M75 54 Q85 48 95 54" fill="none" stroke="#6ba3be" stroke-width="1.5" opacity="0.5"/>
+          </svg>
+        </div>
+        <div class="product-card__body">
+          <div class="product-cat">Confort de nuit</div>
+          <h3 class="product-card__title">Oreiller Gel Rafraîchissant</h3>
+          <p class="product-card__desc">Technologie gel à mémoire de forme pour réguler la chaleur pendant la nuit. Dites au revoir aux sueurs nocturnes cet été.</p>
+          <div class="product-card__footer">
+            <div>
+              <span class="price-current">59,00 €</span>
+              <span class="price-shipping">Livraison offerte</span>
+            </div>
+            <a href="produit-oreiller-gel.html" class="btn btn--primary">Voir</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Produit 4 : Lampe lecture -->
+      <div class="product-card">
+        <div class="product-card__img">
+          <svg viewBox="0 0 120 100" style="width:85px;height:80px" xmlns="http://www.w3.org/2000/svg">
+            <!-- Book base -->
+            <rect x="20" y="72" width="80" height="10" rx="4" fill="#c8d8e4"/>
+            <!-- Flexible neck -->
+            <path d="M60 72 Q55 55 48 42 Q44 32 52 26" fill="none" stroke="#6ba3be" stroke-width="7" stroke-linecap="round"/>
+            <!-- Lamp head -->
+            <ellipse cx="57" cy="22" rx="14" ry="8" fill="#4a86a8" transform="rotate(-20,57,22)"/>
+            <!-- Light cone -->
+            <path d="M45 28 L30 62 L75 62 L65 28 Z" fill="rgba(255,220,100,0.25)"/>
+            <!-- Light rays -->
+            <line x1="55" y1="30" x2="48" y2="60" stroke="#f0c040" stroke-width="1" opacity="0.5"/>
+            <line x1="60" y1="30" x2="60" y2="62" stroke="#f0c040" stroke-width="1" opacity="0.5"/>
+            <line x1="65" y1="30" x2="70" y2="60" stroke="#f0c040" stroke-width="1" opacity="0.5"/>
+            <!-- Clip -->
+            <rect x="56" y="68" width="8" height="10" rx="2" fill="#a0bece"/>
+          </svg>
+        </div>
+        <div class="product-card__body">
+          <div class="product-cat">Lecture &amp; confort</div>
+          <h3 class="product-card__title">Lampe de Lecture Flexible</h3>
+          <p class="product-card__desc">Éclairage ciblé, col flexible, rechargeable USB. Parfaite pour lire sans déranger, 3 températures de couleur, autonomie 30h.</p>
+          <div class="product-card__footer">
+            <div>
+              <span class="price-current">32,00 €</span>
+              <span class="price-shipping">Livraison offerte</span>
+            </div>
+            <a href="produit-lampe-lecture.html" class="btn btn--primary">Voir</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- COMMENT CA MARCHE -->
+<section class="section section--creme">
+  <div class="container">
+    <div class="text-center" style="margin-bottom:3rem">
+      <h2 class="section-title">Un rituel en 3 étapes</h2>
+      <p class="section-sub">Le rituel SérénLab s'adapte à votre mode de vie, même les soirs les plus chargés.</p>
+    </div>
+    <div style="max-width:620px;margin:0 auto">
+      <div class="steps-list">
+        <div class="step">
+          <div class="step-num">1</div>
+          <div>
+            <h4>Préparez votre espace</h4>
+            <p>Lancez vos sons d'ambiance préférés sur <strong>Havre Sonore</strong> (ou votre machine autonome), tamisez la lumière. Votre corps comprend que c'est l'heure de ralentir.</p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num">2</div>
+          <div>
+            <h4>Votre rituel lumineux</h4>
+            <p>Enfilez votre masque LED SérénLab pendant 10-20 minutes. Un moment de détente rien que pour vous. LED rouge pour l'éclat, LED bleue pour la purification.</p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num">3</div>
+          <div>
+            <h4>Glissez-vous dans vos nuits</h4>
+            <p>Posez votre tête sur votre oreiller gel rafraîchissant, lisez quelques pages à la lumière douce de votre lampe flexible. Une nuit profonde commence ici.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HAVRE SONORE -->
+<section class="section havre-block">
+  <div class="container">
+    <div class="havre-grid">
+      <div>
+        <div class="havre-badge">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M3 18v-6a9 9 0 0 1 18 0v6"/><path d="M21 19a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3z" fill="none" stroke="currentColor" stroke-width="2"/><path d="M3 19a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2H3z" fill="none" stroke="currentColor" stroke-width="2"/></svg>
+          Notre univers sonore
+        </div>
+        <h2>Havre Sonore,<br>votre rituel audio</h2>
+        <p>SérénLab est née de la passion derrière <strong style="color:#fff">Havre Sonore</strong>, la chaîne YouTube dédiée aux sons d'ambiance pour dormir, se concentrer et décompresser. Pluie, forêt, feu de cheminée, côte bretonne… Des heures de sons enregistrés pour vous aider à retrouver votre calme intérieur.</p>
+        <div class="havre-stats">
+          <div>
+            <div class="stat-num">8h</div>
+            <div class="stat-lbl">de sons non-stop</div>
+          </div>
+          <div>
+            <div class="stat-num">100%</div>
+            <div class="stat-lbl">gratuit sur YouTube</div>
+          </div>
+          <div>
+            <div class="stat-num">0</div>
+            <div class="stat-lbl">publicité intrusive</div>
+          </div>
+        </div>
+        <a href="https://www.youtube.com/@HavreSonore" target="_blank" rel="noopener" class="btn btn--primary">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-2.75 4.83 4.83 0 0 0-4.83 4.83v9.07a2.54 2.54 0 0 1-5.07 0v-7.6a4.83 4.83 0 0 1 4.83-4.83h.06a4.83 4.83 0 0 1 3.77 2.75 4.83 4.83 0 0 0 4.83-1.47z"/></svg>
+          Regarder Havre Sonore
+        </a>
+      </div>
+      <div class="havre-visual" aria-hidden="true">
+        <div>
+          <div class="wave-bars">
+            <div class="wave-bar"></div><div class="wave-bar"></div><div class="wave-bar"></div>
+            <div class="wave-bar"></div><div class="wave-bar"></div><div class="wave-bar"></div>
+            <div class="wave-bar"></div><div class="wave-bar"></div><div class="wave-bar"></div>
+          </div>
+          <p style="color:rgba(255,255,255,.5);font-size:.78rem;text-align:center;margin-top:1rem;">Sons en cours de lecture&hellip;</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CAPTURE EMAIL -->
+<section class="section email-capture">
+  <div class="container">
+    <div class="capture-card">
+      <div style="font-size:2rem;margin-bottom:.75rem" aria-hidden="true">✉️</div>
+      <h2 class="section-title" style="font-size:1.5rem">Rejoignez la communauté SérénLab</h2>
+      <p>Recevez nos conseils bien-être, nos nouveautés en avant-première et des offres exclusives. Pas de spam — juste de la sérénité dans votre boîte mail.</p>
+      <form class="email-form" novalidate>
+        <input type="email" placeholder="Votre adresse email" required autocomplete="email" aria-label="Adresse email">
+        <button type="submit" class="btn btn--primary">S'inscrire</button>
+      </form>
+      <p class="capture-note">Inscription gratuite · Désinscription en un clic · Vos données ne sont jamais vendues</p>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-logo">Sérén<em>Lab</em></div>
+        <p class="footer-desc">Votre rituel bien-être maison. Des produits sélectionnés pour améliorer vos nuits et votre routine du soir, à des prix accessibles.</p>
+        <div class="footer-social">
+          <a href="https://www.youtube.com/@HavreSonore" target="_blank" rel="noopener" class="social-btn" aria-label="YouTube Havre Sonore">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-1.96C18.88 4 12 4 12 4s-6.88 0-8.6.46A2.78 2.78 0 0 0 1.46 6.42 29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58 2.78 2.78 0 0 0 1.94 1.97C5.12 20 12 20 12 20s6.88 0 8.6-.45a2.78 2.78 0 0 0 1.94-1.97A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58z"/><polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02" fill="#18293a"/></svg>
+          </a>
+        </div>
+      </div>
+      <div>
+        <div class="footer-col-title">Produits</div>
+        <nav class="footer-links">
+          <a href="produit-masque-led.html">Masque LED</a>
+          <a href="produit-machine-sons.html">Machine sons</a>
+          <a href="produit-oreiller-gel.html">Oreiller gel</a>
+          <a href="produit-lampe-lecture.html">Lampe lecture</a>
+        </nav>
+      </div>
+      <div>
+        <div class="footer-col-title">Aide</div>
+        <nav class="footer-links">
+          <a href="livraison.html">Livraison &amp; retours</a>
+          <a href="cgv.html">CGV</a>
+          <a href="cgv.html#mentions">Mentions légales</a>
+          <a href="a-propos.html">À propos</a>
+        </nav>
+      </div>
+      <div>
+        <div class="footer-col-title">Notre univers</div>
+        <nav class="footer-links">
+          <a href="https://www.youtube.com/@HavreSonore" target="_blank" rel="noopener">Havre Sonore (YouTube)</a>
+          <a href="panier.html">Mon panier</a>
+        </nav>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p class="footer-copy">&copy; 2026 SérénLab. Tous droits réservés. Produits expédiés depuis entrepôts EU.</p>
+      <p class="footer-copy">Les produits SérénLab ne sont pas des dispositifs médicaux. Ils ne diagnostiquent, ne traitent ni ne guérissent aucune maladie.</p>
+    </div>
+  </div>
+</footer>
+
+<script src="app.js"></script>
+</body>
+</html>
