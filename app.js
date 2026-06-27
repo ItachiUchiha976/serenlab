@@ -88,43 +88,103 @@ function renderCartPage() {
   if (totalEl) totalEl.textContent = total.toFixed(2).replace('.', ',') + ' €';
 }
 
-/* ---- Checkout stub ---- */
-function initCheckout() {
-  const form = document.getElementById('checkout-form');
-  if (!form) return;
-
-  // Pre-fill email from localStorage if known
-  const savedEmail = localStorage.getItem('serenlab_email');
-  if (savedEmail) {
-    const emailInput = form.querySelector('input[type="email"]');
-    if (emailInput) emailInput.value = savedEmail;
-  }
-
-  form.addEventListener('submit', function(e) {
-    e.preventDefault();
-    const email = form.querySelector('input[type="email"]').value.trim();
-    const name  = form.querySelector('input[name="nom"]')?.value.trim() || '';
-    if (!email) { showToast('Veuillez saisir votre email.'); return; }
-
-    // Save intent
-    const cart = getCart();
-    const order = { email, name, cart, date: new Date().toISOString(), status: 'pre-order' };
-    const orders = JSON.parse(localStorage.getItem('serenlab_orders') || '[]');
-    orders.push(order);
-    localStorage.setItem('serenlab_orders', JSON.stringify(orders));
-    localStorage.setItem('serenlab_email', email);
-
-    // Clear cart
+/* ---- Email capture & checkout — Web3Forms (AJAX) ---- */
+function showFormSuccess(form) {
+  // Checkout (panier) : on bascule sur l'état succès dédié + vide le panier
+  if (form.id === 'checkout-form') {
     saveCart([]);
     updateCartUI();
-
-    // Show success
-    const stub = document.getElementById('checkout-stub');
+    renderCartPage();
+    const stub    = document.getElementById('checkout-stub');
     const success = document.getElementById('checkout-success');
     if (stub)    stub.style.display = 'none';
     if (success) success.classList.add('show');
-    renderCartPage();
+    return;
+  }
+  // Capture email générique : message inline, on cache le formulaire
+  const msg = document.createElement('div');
+  msg.className = 'form-success';
+  msg.innerHTML = "<strong>Merci ! Tu es sur la liste.</strong><br>On te prévient en priorité dès l'ouverture — ton -10% de lancement est réservé.";
+  form.style.display = 'none';
+  if (form.parentNode) form.parentNode.insertBefore(msg, form.nextSibling);
+}
+
+function initWeb3Forms() {
+  document.querySelectorAll('form.web3-form').forEach(form => {
+    form.addEventListener('submit', async function(e) {
+      e.preventDefault();
+
+      const emailInput = form.querySelector('input[type="email"]');
+      const email = emailInput ? emailInput.value.trim() : '';
+      if (!email || !email.includes('@')) { showToast('Email invalide.'); return; }
+
+      // CGV obligatoires sur le checkout
+      const cgv = form.querySelector('#cgv-check');
+      if (cgv && !cgv.checked) { showToast('Veuillez accepter les CGV pour continuer.'); return; }
+
+      // Sérialiser le panier dans un champ caché (checkout)
+      if (form.id === 'checkout-form') {
+        const cartField = form.querySelector('input[name="panier"]');
+        if (cartField) {
+          const cart = getCart();
+          cartField.value = cart.length
+            ? cart.map(i => `${i.name} x${i.qty} (${i.price}€)`).join(' | ')
+            : 'Panier vide';
+        }
+      }
+
+      const btn = form.querySelector('button[type="submit"]');
+      const origText = btn ? btn.textContent : '';
+      if (btn) { btn.disabled = true; btn.textContent = 'Envoi…'; }
+
+      try {
+        const res = await fetch(form.action, {
+          method: 'POST',
+          headers: { 'Accept': 'application/json' },
+          body: new FormData(form)
+        });
+        const data = await res.json().catch(() => ({}));
+        if (res.ok && (data.success === undefined || data.success)) {
+          showFormSuccess(form);
+        } else {
+          if (btn) { btn.disabled = false; btn.textContent = origText; }
+          showToast('Oups, un souci est survenu. Réessaie dans un instant.');
+        }
+      } catch (err) {
+        if (btn) { btn.disabled = false; btn.textContent = origText; }
+        showToast('Connexion impossible. Vérifie ta connexion et réessaie.');
+      }
+    });
   });
+}
+
+/* ---- Sticky CTA bar (pages produit) ---- */
+function initStickyCTA() {
+  const hero = document.querySelector('.product-hero');
+  const vip  = document.getElementById('serenlab-vip');
+  if (!hero || !vip) return;
+
+  const titleEl = document.querySelector('.product-title');
+  const priceEl = document.querySelector('.price-main');
+  const title = titleEl ? titleEl.textContent.replace(/\s+/g, ' ').trim() : 'SérénLab';
+  const price = priceEl ? priceEl.textContent.trim() : '';
+
+  const bar = document.createElement('div');
+  bar.className = 'sticky-cta';
+  bar.innerHTML =
+    '<div class="sticky-cta__info">' +
+      '<span class="sticky-cta__name">' + escHtml(title) + '</span>' +
+      (price ? '<span class="sticky-cta__price">' + escHtml(price) + '</span>' : '') +
+    '</div>' +
+    '<a href="#serenlab-vip" class="btn btn--primary sticky-cta__btn">Liste VIP · -10%</a>';
+  document.body.appendChild(bar);
+
+  const onScroll = () => {
+    if (window.scrollY > 500) bar.classList.add('show');
+    else bar.classList.remove('show');
+  };
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
 }
 
 /* ---- FAQ accordion ---- */
@@ -167,21 +227,6 @@ function initMobileMenu() {
       menu.classList.remove('open');
       hamburger.classList.remove('open');
       document.body.style.overflow = '';
-    });
-  });
-}
-
-/* ---- Email capture ---- */
-function initEmailCapture() {
-  document.querySelectorAll('.email-form').forEach(form => {
-    form.addEventListener('submit', function(e) {
-      e.preventDefault();
-      const input = form.querySelector('input[type="email"]');
-      const email = input?.value.trim();
-      if (!email || !email.includes('@')) { showToast('Email invalide.'); return; }
-      localStorage.setItem('serenlab_email', email);
-      showToast('Merci ! Vous recevrez nos conseils bien-être très bientôt.');
-      if (input) input.value = '';
     });
   });
 }
@@ -246,8 +291,8 @@ document.addEventListener('DOMContentLoaded', () => {
   updateCartUI();
   initFaq();
   initMobileMenu();
-  initEmailCapture();
+  initWeb3Forms();
   initQty();
   renderCartPage();
-  initCheckout();
+  initStickyCTA();
 });

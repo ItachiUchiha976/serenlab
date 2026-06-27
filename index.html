@@ -73,13 +73,13 @@
       <div class="hero-content">
         <div class="hero-badge">
           <svg width="12" height="12" viewBox="0 0 12 12" fill="currentColor"><circle cx="6" cy="6" r="6"/></svg>
-          Nouveau — Rituel Lumière
+          Liste VIP ouverte — -10% garanti à l'ouverture
         </div>
         <h1 class="hero-title">Votre rituel bien-être,<br>revisité par la <em style="font-style:normal;color:var(--bleu)">lumière</em></h1>
-        <p class="hero-sub">Des produits soigneusement sélectionnés pour transformer votre routine du soir en un véritable moment de détente. Science douce + bien-être accessible, sans se ruiner en clinique.</p>
+        <p class="hero-sub">Vous vous couchez fatigué(e), mais le moment pour vous ne vient jamais. SérénLab a sélectionné 4 essentiels pour transformer votre routine du soir en un vrai moment de détente — à la maison, en 20 minutes, sans vous ruiner en institut.</p>
         <div class="hero-ctas">
-          <a href="produit-masque-led.html" class="btn btn--primary btn--lg">Découvrir le Masque LED</a>
-          <a href="#best-sellers" class="btn btn--secondary btn--lg">Tous les produits</a>
+          <a href="#serenlab-vip" class="btn btn--primary btn--lg">Rejoindre la liste VIP · -10%</a>
+          <a href="#best-sellers" class="btn btn--secondary btn--lg">Voir les produits</a>
         </div>
         <div class="hero-trust">
           <span class="trust-item">
@@ -183,7 +183,7 @@
       <!-- Produit 1 : Masque LED -->
       <div class="product-card">
         <div class="product-card__img">
-          <span class="product-badge-hero">Best-seller</span>
+          <span class="product-badge-hero">Notre sélection n°1</span>
           <svg viewBox="0 0 120 100" style="width:90px;height:80px" xmlns="http://www.w3.org/2000/svg">
             <ellipse cx="60" cy="55" rx="45" ry="38" fill="#e6f2f8" stroke="#4a86a8" stroke-width="2"/>
             <ellipse cx="40" cy="50" rx="13" ry="8" fill="white"/>
@@ -371,14 +371,19 @@
             <div class="stat-lbl">gratuit sur YouTube</div>
           </div>
           <div>
-            <div class="stat-num">0</div>
-            <div class="stat-lbl">publicité intrusive</div>
+            <div class="stat-num">∞</div>
+            <div class="stat-lbl">sommeil · focus · détente</div>
           </div>
         </div>
-        <a href="https://www.youtube.com/@HavreSonore" target="_blank" rel="noopener" class="btn btn--primary">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-2.75 4.83 4.83 0 0 0-4.83 4.83v9.07a2.54 2.54 0 0 1-5.07 0v-7.6a4.83 4.83 0 0 1 4.83-4.83h.06a4.83 4.83 0 0 1 3.77 2.75 4.83 4.83 0 0 0 4.83-1.47z"/></svg>
-          Regarder Havre Sonore
-        </a>
+        <div style="display:flex;flex-wrap:wrap;gap:.75rem">
+          <a href="https://www.youtube.com/@HavreSonore?sub_confirmation=1" target="_blank" rel="noopener" class="btn btn--primary">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-2.75 4.83 4.83 0 0 0-4.83 4.83v9.07a2.54 2.54 0 0 1-5.07 0v-7.6a4.83 4.83 0 0 1 4.83-4.83h.06a4.83 4.83 0 0 1 3.77 2.75 4.83 4.83 0 0 0 4.83-1.47z"/></svg>
+            S'abonner à Havre Sonore
+          </a>
+          <a href="https://www.youtube.com/@HavreSonore" target="_blank" rel="noopener" class="btn btn--secondary" style="color:#fff;border-color:rgba(255,255,255,.5)">
+            Regarder la chaîne
+          </a>
+        </div>
       </div>
       <div class="havre-visual" aria-hidden="true">
         <div>
@@ -394,18 +399,23 @@
   </div>
 </section>
 
-<!-- CAPTURE EMAIL -->
-<section class="section email-capture">
+<!-- CAPTURE EMAIL — Liste VIP -->
+<section class="section email-capture" id="serenlab-vip">
   <div class="container">
     <div class="capture-card">
       <div style="font-size:2rem;margin-bottom:.75rem" aria-hidden="true">✉️</div>
-      <h2 class="section-title" style="font-size:1.5rem">Rejoignez la communauté SérénLab</h2>
-      <p>Recevez nos conseils bien-être, nos nouveautés en avant-première et des offres exclusives. Pas de spam — juste de la sérénité dans votre boîte mail.</p>
-      <form class="email-form" novalidate>
-        <input type="email" placeholder="Votre adresse email" required autocomplete="email" aria-label="Adresse email">
-        <button type="submit" class="btn btn--primary">S'inscrire</button>
+      <h2 class="section-title" style="font-size:1.5rem">Liste VIP — -10% garanti à l'ouverture</h2>
+      <p>La boutique ouvre bientôt. Inscris-toi pour être prévenu(e) en priorité dès l'ouverture et bloquer ton <strong>-10% de lancement</strong>. Tu seras aussi parmi les premiers à donner ton avis.</p>
+      <form action="https://api.web3forms.com/submit" method="POST" class="web3-form email-form">
+        <input type="hidden" name="access_key" value="d97a8c73-b827-48bb-b437-e053a73fdb7e">
+        <input type="hidden" name="subject" value="SérénLab nouveau lead">
+        <input type="hidden" name="from_name" value="SérénLab">
+        <input type="hidden" name="source" value="accueil-liste-vip">
+        <input type="checkbox" name="botcheck" style="display:none !important" tabindex="-1" autocomplete="off">
+        <input type="email" name="email" placeholder="Ton email" required autocomplete="email" aria-label="Adresse email">
+        <button type="submit" class="btn btn--primary">Obtenir mon -10%</button>
+        <p class="capture-note">Liste fermée — places limitées · Pas de spam. Désinscription en 1 clic.</p>
       </form>
-      <p class="capture-note">Inscription gratuite · Désinscription en un clic · Vos données ne sont jamais vendues</p>
     </div>
   </div>
 </section>

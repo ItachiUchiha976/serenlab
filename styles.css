@@ -549,6 +549,43 @@ p  { color:var(--text-med); line-height:1.75; }
 }
 .divider { height:1px; background:var(--border); margin:2rem 0; }
 
+/* ---- Form success (Web3Forms) ---- */
+.form-success {
+  margin-top:1.25rem; padding:1.1rem 1.25rem;
+  background:var(--vert-pale); border:1px solid var(--vert);
+  border-radius:var(--r); color:var(--text-dark);
+  font-size:.92rem; line-height:1.5; text-align:center;
+}
+.form-success strong { color:var(--vert); }
+.email-form .capture-note { flex-basis:100%; width:100%; margin-top:.4rem; }
+
+/* ---- VIP + Havre Sonore strip (pages produit) ---- */
+.vip-strip { background:var(--bg-light); }
+.vip-grid { display:grid; grid-template-columns:1fr; gap:1.5rem; }
+.vip-capture, .vip-yt {
+  background:#fff; border-radius:var(--r2); padding:1.75rem 1.5rem;
+  box-shadow:var(--shadow);
+}
+.vip-capture h3, .vip-yt h3 { font-family:var(--f-title); font-size:1.15rem; margin-bottom:.5rem; }
+.vip-capture p, .vip-yt p { font-size:.9rem; color:var(--text-med); margin-bottom:.5rem; }
+.vip-yt { display:flex; flex-direction:column; align-items:flex-start; justify-content:center; }
+.vip-yt .vip-eyebrow { font-size:.78rem; font-weight:700; color:var(--bleu); text-transform:uppercase; letter-spacing:.04em; margin-bottom:.3rem; }
+
+/* ---- Sticky CTA bar (pages produit, mobile-first) ---- */
+.sticky-cta {
+  position:fixed; left:0; right:0; bottom:0; z-index:1500;
+  display:flex; align-items:center; gap:1rem;
+  padding:.7rem 1rem; background:#fff;
+  border-top:1px solid var(--border);
+  box-shadow:0 -4px 18px rgba(0,0,0,.08);
+  transform:translateY(120%); transition:transform .3s ease;
+}
+.sticky-cta.show { transform:translateY(0); }
+.sticky-cta__info { display:flex; flex-direction:column; line-height:1.2; }
+.sticky-cta__name { font-size:.8rem; font-weight:600; color:var(--text-dark); }
+.sticky-cta__price { font-size:.95rem; font-weight:700; color:var(--bleu); }
+.sticky-cta__btn { margin-left:auto; min-height:44px; }
+
 /* ---- Responsive ---- */
 @media(min-width:640px){
   .promise-grid   { grid-template-columns:1fr 1fr; }
@@ -565,6 +602,7 @@ p  { color:var(--text-med); line-height:1.75; }
   .product-hero-grid  { grid-template-columns:1fr 1fr; }
   .footer-grid        { grid-template-columns:2fr 1fr 1fr 1fr; }
   .product-trust      { grid-template-columns:repeat(4,1fr); }
+  .vip-grid           { grid-template-columns:1fr 1fr; align-items:stretch; }
 }
 @media(min-width:1024px){
   .nav-list        { display:flex; }

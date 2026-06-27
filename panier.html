@@ -101,10 +101,16 @@
 
         <!-- CHECKOUT STUB -->
         <div id="checkout-stub" class="checkout-stub">
-          <h3>Confirmer mon intention d'achat</h3>
-          <p>Le paiement en ligne sera disponible très prochainement. En attendant, laissez votre email et nous vous contacterons dès l'ouverture pour finaliser votre commande.</p>
+          <h3>Accès prioritaire à l'ouverture</h3>
+          <p>Le paiement en ligne ouvre très bientôt. Réserve ta place sur la liste VIP : tu seras prévenu(e) en priorité dès l'ouverture, avec ton <strong>-10% de lancement</strong>.</p>
 
-          <form id="checkout-form" class="checkout-form" novalidate>
+          <form action="https://api.web3forms.com/submit" method="POST" id="checkout-form" class="web3-form checkout-form" novalidate>
+            <input type="hidden" name="access_key" value="d97a8c73-b827-48bb-b437-e053a73fdb7e">
+            <input type="hidden" name="subject" value="SérénLab nouveau lead (panier)">
+            <input type="hidden" name="from_name" value="SérénLab">
+            <input type="hidden" name="source" value="panier-checkout">
+            <input type="hidden" name="panier" value="">
+            <input type="checkbox" name="botcheck" style="display:none !important" tabindex="-1" autocomplete="off">
             <input type="text" name="nom" placeholder="Votre prénom (optionnel)" autocomplete="given-name">
             <input type="email" name="email" placeholder="Votre adresse email *" required autocomplete="email">
             <input type="tel" name="tel" placeholder="Téléphone (optionnel)" autocomplete="tel">
@@ -117,24 +123,28 @@
             </div>
 
             <button type="submit" class="btn btn--primary btn--full">
-              Réserver ma place &rarr;
+              Réserver ma place VIP &rarr;
             </button>
+            <p class="capture-note" style="text-align:center">
+              Aucun paiement prélevé maintenant &bull; On te prévient dès l'ouverture &bull; Désinscription en 1 clic
+            </p>
           </form>
-
-          <p style="font-size:.76rem;color:var(--text-light);margin-top:.75rem;text-align:center">
-            Aucun paiement prélevé maintenant &bull; Vous recevrez un email de confirmation &bull; Annulation libre
-          </p>
         </div>
 
         <!-- SUCCESS STATE -->
         <div id="checkout-success" class="checkout-success">
           <div style="font-size:3rem;margin-bottom:.75rem">✅</div>
-          <h3>Merci pour votre intérêt !</h3>
-          <p style="margin-bottom:1rem">Votre demande a bien été enregistrée. Nous vous enverrons un email dès que le paiement en ligne sera disponible pour finaliser votre commande.</p>
-          <p style="font-size:.85rem;color:var(--text-med);margin-bottom:1.5rem">En attendant, découvrez Havre Sonore sur YouTube — des heures de sons d'ambiance gratuits pour améliorer vos nuits.</p>
-          <a href="https://www.youtube.com/@HavreSonore" target="_blank" rel="noopener" class="btn btn--green">
-            Découvrir Havre Sonore
-          </a>
+          <h3>Tu es sur la liste VIP !</h3>
+          <p style="margin-bottom:1rem">Ta place est réservée. On t'enverra un email dès l'ouverture du paiement en ligne — avec ton -10% de lancement.</p>
+          <p style="font-size:.85rem;color:var(--text-med);margin-bottom:1.5rem">En attendant, rejoins notre univers sonore : des heures de sons d'ambiance gratuits sur Havre Sonore pour des soirées plus calmes.</p>
+          <div style="display:flex;flex-wrap:wrap;gap:.6rem;justify-content:center">
+            <a href="https://www.youtube.com/@HavreSonore?sub_confirmation=1" target="_blank" rel="noopener" class="btn btn--primary">
+              S'abonner à Havre Sonore
+            </a>
+            <a href="https://www.youtube.com/@HavreSonore" target="_blank" rel="noopener" class="btn btn--green">
+              Découvrir la chaîne
+            </a>
+          </div>
         </div>
 
       </div>
@@ -203,22 +213,6 @@
   </div>
 </footer>
 
-<script>
-// Validate CGV checkbox on submit
-document.addEventListener('DOMContentLoaded', function(){
-  var form = document.getElementById('checkout-form');
-  if(form){
-    form.addEventListener('submit', function(e){
-      var check = document.getElementById('cgv-check');
-      if(check && !check.checked){
-        e.preventDefault();
-        e.stopImmediatePropagation();
-        showToast('Veuillez accepter les CGV pour continuer.');
-      }
-    }, true);
-  }
-});
-</script>
 <script src="app.js"></script>
 </body>
 </html>
