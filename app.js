@@ -104,7 +104,7 @@ function showFormSuccess(form) {
   // Capture email générique : message inline, on cache le formulaire
   const msg = document.createElement('div');
   msg.className = 'form-success';
-  msg.innerHTML = "<strong>Merci ! Tu es sur la liste.</strong><br>On te prévient en priorité dès l'ouverture — ton -10% de lancement est réservé.";
+  msg.innerHTML = "<strong>Merci ! Tu es inscrit·e.</strong><br>On te tient au courant de nos nouveautés et prochains produits.";
   form.style.display = 'none';
   if (form.parentNode) form.parentNode.insertBefore(msg, form.nextSibling);
 }
@@ -161,13 +161,25 @@ function initWeb3Forms() {
 /* ---- Sticky CTA bar (pages produit) ---- */
 function initStickyCTA() {
   const hero = document.querySelector('.product-hero');
-  const vip  = document.getElementById('serenlab-vip');
-  if (!hero || !vip) return;
+  if (!hero) return;
+
+  // Cible réelle de l'action : le bouton "Ajouter au panier" du produit s'il existe,
+  // sinon la section de capture email (peu importe le suffixe de son id : serenlab-vip,
+  // serenlab-vip-gua, serenlab-vip-bt, serenlab-vip-gel...) — la barre doit s'afficher
+  // et fonctionner sur TOUTES les fiches produit, pas seulement celles avec id="serenlab-vip".
+  const buyBtn = hero.querySelector('.product-ctas button[onclick*="addToCart("]')
+              || document.querySelector('.product-ctas button[onclick*="addToCart("]');
+  const vipSection = document.querySelector('[id^="serenlab-vip"]');
+  const target = buyBtn || vipSection;
+  if (!target) return;
 
   const titleEl = document.querySelector('.product-title');
   const priceEl = document.querySelector('.price-main');
   const title = titleEl ? titleEl.textContent.replace(/\s+/g, ' ').trim() : 'SérénLab';
   const price = priceEl ? priceEl.textContent.trim() : '';
+
+  // Aucune réduction n'existe sur la boutique : le CTA pointe vers l'achat réel (pas une fausse promo).
+  const ctaLabel = buyBtn ? 'Ajouter au panier' : 'Être informé(e)';
 
   const bar = document.createElement('div');
   bar.className = 'sticky-cta';
@@ -176,8 +188,12 @@ function initStickyCTA() {
       '<span class="sticky-cta__name">' + escHtml(title) + '</span>' +
       (price ? '<span class="sticky-cta__price">' + escHtml(price) + '</span>' : '') +
     '</div>' +
-    '<a href="#serenlab-vip" class="btn btn--primary sticky-cta__btn">Liste VIP · -10%</a>';
+    '<button type="button" class="btn btn--primary sticky-cta__btn">' + escHtml(ctaLabel) + '</button>';
   document.body.appendChild(bar);
+
+  bar.querySelector('.sticky-cta__btn').addEventListener('click', () => {
+    target.scrollIntoView({ behavior: 'smooth', block: 'center' });
+  });
 
   const onScroll = () => {
     if (window.scrollY > 500) bar.classList.add('show');
