@@ -123,14 +123,27 @@
           </div>
         </div>
 
-        <!-- CTA principal : email early-bird -->
-        <div style="margin-bottom:1.2rem">
-          <a href="#serenlab-vip-gel" class="btn btn--primary btn--lg btn--full">
-            Être prévenu(e) du lancement &mdash; -15% early-bird
-          </a>
-          <p style="font-size:.8rem;color:var(--text-light);margin-top:.5rem;text-align:center">
-            Boutique en cours d'ouverture &mdash; réserve ton accès prioritaire ci-dessous
-          </p>
+        <div class="qty-row">
+          <span class="qty-label">Quantité</span>
+          <div class="qty-ctrl">
+            <button class="qty-btn qty-dec" aria-label="Diminuer">&#8722;</button>
+            <span class="qty-val">1</span>
+            <button class="qty-btn qty-inc" aria-label="Augmenter">+</button>
+          </div>
+        </div>
+
+        <!-- CTA principal : ajout au panier -->
+        <div class="product-ctas">
+          <button class="btn btn--primary btn--lg"
+            style="flex:1"
+            data-id="masque-gel"
+            data-name="Masque Gel Yeux Chaud / Froid"
+            data-price="25"
+            data-emoji="❄️"
+            onclick="addToCart('masque-gel','Masque Gel Yeux Chaud / Froid',25,'❄️')">
+            Ajouter au panier
+          </button>
+          <a href="panier.html" class="btn btn--secondary btn--lg">Voir le panier</a>
         </div>
 
         <div class="product-trust">

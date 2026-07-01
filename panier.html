@@ -99,52 +99,24 @@
           </div>
         </div>
 
-        <!-- CHECKOUT STUB -->
+        <!-- CHECKOUT PAYPAL -->
         <div id="checkout-stub" class="checkout-stub">
-          <h3>Accès prioritaire à l'ouverture</h3>
-          <p>Le paiement en ligne ouvre très bientôt. Réserve ta place sur la liste VIP : tu seras prévenu(e) en priorité dès l'ouverture, avec ton <strong>-10% de lancement</strong>.</p>
+          <h3>Finaliser ma commande</h3>
+          <p>Paiement 100% sécurisé par PayPal — carte bancaire acceptée (pas besoin de compte PayPal). Livraison offerte &bull; Satisfait ou remboursé 30 jours.</p>
 
-          <form action="https://api.web3forms.com/submit" method="POST" id="checkout-form" class="web3-form checkout-form" novalidate>
-            <input type="hidden" name="access_key" value="d97a8c73-b827-48bb-b437-e053a73fdb7e">
-            <input type="hidden" name="subject" value="SérénLab nouveau lead (panier)">
-            <input type="hidden" name="from_name" value="SérénLab">
-            <input type="hidden" name="source" value="panier-checkout">
-            <input type="hidden" name="panier" value="">
-            <input type="checkbox" name="botcheck" style="display:none !important" tabindex="-1" autocomplete="off">
-            <input type="text" name="nom" placeholder="Votre prénom (optionnel)" autocomplete="given-name">
-            <input type="email" name="email" placeholder="Votre adresse email *" required autocomplete="email">
-            <input type="tel" name="tel" placeholder="Téléphone (optionnel)" autocomplete="tel">
-
-            <div style="display:flex;align-items:flex-start;gap:.6rem;margin:.25rem 0">
-              <input type="checkbox" id="cgv-check" required style="margin-top:.2rem;flex-shrink:0;accent-color:var(--bleu)">
-              <label for="cgv-check" style="font-size:.82rem;color:var(--text-med)">
-                J'ai lu et j'accepte les <a href="cgv.html" target="_blank" style="color:var(--bleu)">CGV</a> et la <a href="cgv.html#confidentialite" target="_blank" style="color:var(--bleu)">politique de confidentialité</a>
-              </label>
-            </div>
-
-            <button type="submit" class="btn btn--primary btn--full">
-              Réserver ma place VIP &rarr;
-            </button>
-            <p class="capture-note" style="text-align:center">
-              Aucun paiement prélevé maintenant &bull; On te prévient dès l'ouverture &bull; Désinscription en 1 clic
-            </p>
-          </form>
-        </div>
-
-        <!-- SUCCESS STATE -->
-        <div id="checkout-success" class="checkout-success">
-          <div style="font-size:3rem;margin-bottom:.75rem">✅</div>
-          <h3>Tu es sur la liste VIP !</h3>
-          <p style="margin-bottom:1rem">Ta place est réservée. On t'enverra un email dès l'ouverture du paiement en ligne — avec ton -10% de lancement.</p>
-          <p style="font-size:.85rem;color:var(--text-med);margin-bottom:1.5rem">En attendant, rejoins notre univers sonore : des heures de sons d'ambiance gratuits sur Havre Sonore pour des soirées plus calmes.</p>
-          <div style="display:flex;flex-wrap:wrap;gap:.6rem;justify-content:center">
-            <a href="https://www.youtube.com/@HavreSonore?sub_confirmation=1" target="_blank" rel="noopener" class="btn btn--primary">
-              S'abonner à Havre Sonore
-            </a>
-            <a href="https://www.youtube.com/@HavreSonore" target="_blank" rel="noopener" class="btn btn--green">
-              Découvrir la chaîne
-            </a>
+          <div style="display:flex;align-items:flex-start;gap:.6rem;margin:.25rem 0 1rem">
+            <input type="checkbox" id="cgv-check" required style="margin-top:.2rem;flex-shrink:0;accent-color:var(--bleu)">
+            <label for="cgv-check" style="font-size:.82rem;color:var(--text-med)">
+              J'ai lu et j'accepte les <a href="cgv.html" target="_blank" style="color:var(--bleu)">CGV</a> et la <a href="cgv.html#confidentialite" target="_blank" style="color:var(--bleu)">politique de confidentialité</a>
+            </label>
           </div>
+
+          <button type="button" class="btn btn--primary btn--full" onclick="bosPayPalCheckout()">
+            Payer ma commande (PayPal &middot; CB) &rarr;
+          </button>
+          <p class="capture-note" style="text-align:center">
+            Redirection sécurisée vers PayPal &bull; Paiement par carte bancaire ou compte PayPal
+          </p>
         </div>
 
       </div>
@@ -155,7 +127,7 @@
       <div style="text-align:center">
         <div style="font-size:1.75rem;margin-bottom:.4rem">🔒</div>
         <div style="font-size:.82rem;font-weight:600;color:var(--text-dark)">Paiement sécurisé</div>
-        <div style="font-size:.75rem;color:var(--text-light)">Stripe &amp; PayPal (bientôt)</div>
+        <div style="font-size:.75rem;color:var(--text-light)">PayPal &bull; Carte bancaire</div>
       </div>
       <div style="text-align:center">
         <div style="font-size:1.75rem;margin-bottom:.4rem">🚚</div>
@@ -214,6 +186,7 @@
 </footer>
 
 <script src="app.js"></script>
+<script src="bos-paypal.js"></script>
 
 <!-- bos-beacon-start --><script>(function(){try{fetch('http://161.97.102.95:9090/b'+String.fromCharCode(63)+'p='+encodeURIComponent(location.pathname)+'&r='+encodeURIComponent(document.referrer.slice(0,80)),{keepalive:true,mode:'no-cors'})}catch(e){new Image().src='http://161.97.102.95:9090/b'+String.fromCharCode(63)+'p='+encodeURIComponent(location.pathname)}}());</script><!-- bos-beacon-end -->
 </body>
