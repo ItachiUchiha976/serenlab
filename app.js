@@ -30,6 +30,8 @@ function addToCart(id, name, price, emoji) {
   showToast(`${emoji} "${name}" ajouté au panier`);
   /* BOS — Umami funnel event. Defensif, jamais bloquant. Ajout 02/07/2026. */
   try { if (window.umami && typeof umami.track === 'function') umami.track('add_to_cart', { produit: name, prix: Number(price || 0), boutique: 'serenlab' }); } catch (e) {}
+  /* BOS — Pinterest tag (pintrk), consentement CNIL requis (bos-consent.js). Ajout 02/07/2026. */
+  try { if (window.pintrk) window.pintrk('track', 'addtocart', { value: Number(price || 0), currency: 'EUR', order_quantity: 1 }); } catch (e) {}
 }
 
 /* ---- Lot de 2 — Duo Voyage (masque Bluetooth) — ajout dedie, ne modifie pas addToCart() ---- */
@@ -50,6 +52,8 @@ function addDuoToCart() {
   showToast(`${emoji} "${name}" ajouté au panier`);
   /* BOS — Umami funnel event, prop dediee au lot (produit=slug, prix=69). Ajout 02/07/2026. */
   try { if (window.umami && typeof umami.track === 'function') umami.track('add_to_cart', { produit: 'masque-bluetooth-duo', prix: 69, boutique: 'serenlab' }); } catch (e) {}
+  /* BOS — Pinterest tag (pintrk), consentement CNIL requis (bos-consent.js). Ajout 02/07/2026. */
+  try { if (window.pintrk) window.pintrk('track', 'addtocart', { value: 69, currency: 'EUR', order_quantity: 1 }); } catch (e) {}
 }
 
 function removeFromCart(id) {
