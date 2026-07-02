@@ -81,7 +81,7 @@
           </div>
           <div class="price-detail">
             <strong>Livraison offerte</strong> en France<br>
-            Livraison estimée 12 à 20 jours ouvrés
+            <span class="bos-delivery-window-compact">Livraison estimée 12 à 20 jours ouvrés</span>
           </div>
         </div>
 
@@ -133,6 +133,7 @@
           </button>
           <a href="panier.html" class="btn btn--secondary btn--lg">Voir le panier</a>
         </div>
+        <p class="bos-reassurance" style="font-size:.78rem;color:var(--text-med);margin-top:.6rem">✔ Remboursé 30 jours &middot; ✔ Numéro de suivi fourni &middot; ✔ Paiement sécurisé PayPal</p>
 
         <div class="product-trust">
           <span class="trust-mini">
@@ -439,6 +440,40 @@
 </footer>
 
 <script src="app.js"></script>
+
+<!-- bos-delivery-window-start : fenetre de livraison datee (jours ouvres), purement additif, 0 impact checkout/Umami -->
+<script>
+(function () {
+  function bosAddBizDays(date, days) {
+    var d = new Date(date.getTime());
+    var added = 0;
+    while (added < days) {
+      d.setDate(d.getDate() + 1);
+      var day = d.getDay();
+      if (day !== 0 && day !== 6) added++;
+    }
+    return d;
+  }
+  function bosFmtDayMonth(d) {
+    return d.toLocaleDateString('fr-FR', { day: 'numeric', month: 'long' });
+  }
+  try {
+    var today = new Date();
+    var minD = bosAddBizDays(today, 12);
+    var maxD = bosAddBizDays(today, 20);
+    var sameMonth = minD.getMonth() === maxD.getMonth() && minD.getFullYear() === maxD.getFullYear();
+    var minLabel = sameMonth ? String(minD.getDate()) : bosFmtDayMonth(minD);
+    var maxLabel = bosFmtDayMonth(maxD);
+    var fullText = "Commandez aujourd'hui → livraison estimée entre le " + minLabel + " et le " + maxLabel;
+    var compactText = "Livraison estimée entre le " + minLabel + " et le " + maxLabel;
+    var fullEls = document.querySelectorAll('.bos-delivery-window');
+    for (var i = 0; i < fullEls.length; i++) { fullEls[i].textContent = fullText; }
+    var compactEls = document.querySelectorAll('.bos-delivery-window-compact');
+    for (var j = 0; j < compactEls.length; j++) { compactEls[j].textContent = compactText; }
+  } catch (e) { /* JS indisponible : le texte statique par defaut deja present reste affiche */ }
+})();
+</script>
+<!-- bos-delivery-window-end -->
 
 <!-- umami-start --><script defer src="https://cloud.umami.is/script.js" data-website-id="d0fa94fe-a108-4590-a465-8f0017569370"></script><!-- umami-end -->
 </body>
