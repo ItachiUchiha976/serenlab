@@ -32,6 +32,26 @@ function addToCart(id, name, price, emoji) {
   try { if (window.umami && typeof umami.track === 'function') umami.track('add_to_cart', { produit: name, prix: Number(price || 0), boutique: 'serenlab' }); } catch (e) {}
 }
 
+/* ---- Lot de 2 — Duo Voyage (masque Bluetooth) — ajout dedie, ne modifie pas addToCart() ---- */
+function addDuoToCart() {
+  const id = 'masque-bluetooth-duo';
+  const name = 'Masque Bluetooth Sommeil — Duo Voyage (Lot de 2)';
+  const price = 69;
+  const emoji = '🎧';
+  const cart = getCart();
+  const existing = cart.find(i => i.id === id);
+  if (existing) {
+    existing.qty++;
+  } else {
+    cart.push({ id, name, price, emoji, qty: 1 });
+  }
+  saveCart(cart);
+  updateCartUI();
+  showToast(`${emoji} "${name}" ajouté au panier`);
+  /* BOS — Umami funnel event, prop dediee au lot (produit=slug, prix=69). Ajout 02/07/2026. */
+  try { if (window.umami && typeof umami.track === 'function') umami.track('add_to_cart', { produit: 'masque-bluetooth-duo', prix: 69, boutique: 'serenlab' }); } catch (e) {}
+}
+
 function removeFromCart(id) {
   const cart = getCart().filter(i => i.id !== id);
   saveCart(cart);
