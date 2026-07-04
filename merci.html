@@ -22,9 +22,9 @@
       <a href="index.html" class="logo">Sérén<em>Lab</em></a>
       <nav><ul class="nav-list">
         <li><a href="index.html" class="nav-link">Accueil</a></li>
+        <li><a href="produit-masque-bluetooth.html" class="nav-link">Masque Bluetooth</a></li>
         <li><a href="produit-masque-led.html" class="nav-link">Masque LED</a></li>
-        <li><a href="produit-machine-sons.html" class="nav-link">Sons d'ambiance</a></li>
-        <li><a href="produit-oreiller-gel.html" class="nav-link">Coussin cervical</a></li>
+        <li><a href="produit-gua-sha.html" class="nav-link">Gua Sha &amp; Roller</a></li>
         <li><a href="a-propos.html" class="nav-link">À propos</a></li>
       </ul></nav>
       <div class="header-actions">
@@ -40,10 +40,10 @@
 <nav class="mobile-menu">
   <button class="mobile-menu__close">&#x2715;</button>
   <a href="index.html">Accueil</a>
+  <a href="produit-masque-bluetooth.html">Masque Bluetooth Sommeil</a>
   <a href="produit-masque-led.html">Masque LED</a>
-  <a href="produit-machine-sons.html">Machine sons d'ambiance</a>
-  <a href="produit-oreiller-gel.html">Coussin cervical rafraîchissant</a>
-  <a href="produit-lampe-lecture.html">Lampe de lecture</a>
+  <a href="produit-gua-sha.html">Gua Sha &amp; Roller Quartz</a>
+  <a href="produit-masque-gel.html">Masque Gel Yeux</a>
   <a href="a-propos.html">À propos</a>
 </nav>
 
@@ -112,10 +112,10 @@
       <div>
         <div class="footer-col-title">Produits</div>
         <nav class="footer-links">
+          <a href="produit-masque-bluetooth.html">Masque Bluetooth</a>
           <a href="produit-masque-led.html">Masque LED</a>
-          <a href="produit-machine-sons.html">Machine sons</a>
-          <a href="produit-oreiller-gel.html">Coussin cervical</a>
-          <a href="produit-lampe-lecture.html">Lampe lecture</a>
+          <a href="produit-gua-sha.html">Gua Sha &amp; Roller</a>
+          <a href="produit-masque-gel.html">Masque Gel Yeux</a>
         </nav>
       </div>
       <div>
@@ -160,7 +160,14 @@
 <script src="bos-consent.js?v=3" defer></script>
 <script>
 window.addEventListener('load', function(){
-  if (window.umami) { umami.track('purchase', {boutique:'serenlab'}); }
+  // BOS — ne compter "purchase" que si la visite vient bien d'un checkout PayPal
+  // lance depuis ce site (flag pose par bos-paypal.js), pas d'un chargement direct/bot.
+  try {
+    if (window.umami && sessionStorage.getItem('bos_checkout_started') === '1') {
+      umami.track('purchase', {boutique:'serenlab'});
+      sessionStorage.removeItem('bos_checkout_started');
+    }
+  } catch (e) {}
 });
 </script>
 </body>

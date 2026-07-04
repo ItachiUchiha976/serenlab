@@ -42,6 +42,7 @@ body {
   background: var(--creme);
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
+  overflow-x: hidden; /* BOS — ceinture de securite anti-scroll horizontal mobile */
 }
 img { max-width:100%; height:auto; display:block; }
 a   { color:inherit; text-decoration:none; }
@@ -92,6 +93,8 @@ p  { color:var(--text-med); line-height:1.75; }
 .btn--green:hover { background:#6b8d6c; transform:translateY(-1px); box-shadow:0 6px 20px rgba(122,157,123,.35); }
 .btn--lg { padding:1rem 2.25rem; font-size:1rem; border-radius:var(--r2); }
 .btn--full { width:100%; }
+/* BOS — les libelles longs des CTA pleine largeur debordaient sur mobile (375px) : autoriser le retour a la ligne */
+.btn--full, .duo-offer .btn, .checkout-stub .btn { white-space:normal; }
 
 /* ---- Header ---- */
 .header {
@@ -379,7 +382,7 @@ p  { color:var(--text-med); line-height:1.75; }
 .product-hero-grid { display:grid; grid-template-columns:1fr; gap:2.5rem; align-items:start; }
 .product-visual {
   background:#fff; border-radius:var(--r2); padding:2.5rem;
-  display:flex; align-items:center; justify-content:center;
+  display:flex; flex-direction:column; align-items:center; justify-content:center;
   box-shadow:var(--shadow); min-height:280px;
 }
 .breadcrumb { font-size:.8rem; color:var(--text-light); margin-bottom:.7rem; }
@@ -538,7 +541,8 @@ p  { color:var(--text-med); line-height:1.75; }
   padding:.8rem 1.5rem; border-radius:var(--r);
   font-size:.875rem; font-weight:500;
   box-shadow:0 4px 20px rgba(0,0,0,.3);
-  transition:transform .35s ease; z-index:9999; white-space:nowrap;
+  transition:transform .35s ease; z-index:9999;
+  max-width:90vw; text-align:center; /* BOS — messages longs (duo) coupes sur mobile en nowrap */
 }
 .toast.show { transform:translateX(-50%) translateY(0); }
 

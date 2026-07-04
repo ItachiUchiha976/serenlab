@@ -201,7 +201,9 @@ function initStickyCTA() {
 
   const titleEl = document.querySelector('.product-title');
   const priceEl = document.querySelector('.price-main');
-  const title = titleEl ? titleEl.textContent.replace(/\s+/g, ' ').trim() : 'SérénLab';
+  // innerText respecte les <br> du titre (retour a la ligne) contrairement a textContent,
+  // qui collait les deux lignes du <h1> ("Masque BluetoothSommeil").
+  const title = titleEl ? titleEl.innerText.replace(/\s+/g, ' ').trim() : 'SérénLab';
   const price = priceEl ? priceEl.textContent.trim() : '';
 
   // Aucune réduction n'existe sur la boutique : le CTA pointe vers l'achat réel (pas une fausse promo).
@@ -297,9 +299,12 @@ function initQty() {
       const pname  = btn.dataset.name;
       const pprice = parseFloat(btn.dataset.price);
       const pemoji = btn.dataset.emoji || '🛒';
-      // Get qty from nearest qty-val
-      const qtyEl = btn.closest('section, .product-hero-grid, .product-info, form, .product-ctas')
-                      ?.querySelector('.qty-val');
+      // Get qty from nearest qty-val. Sur les fiches produit, .qty-row et .product-ctas
+      // sont des DIV freres (tous deux enfants directs de .product-info) : chercher
+      // d'abord le conteneur le plus large (.product-info) avant .product-ctas, sinon
+      // closest() s'arrete sur .product-ctas (plus proche) qui ne contient pas .qty-val.
+      const container = btn.closest('.product-info') || btn.closest('form, .product-ctas, section');
+      const qtyEl = container ? container.querySelector('.qty-val') : null;
       const qty = qtyEl ? parseInt(qtyEl.textContent) || 1 : 1;
       for (let i = 0; i < qty; i++) addToCart(pid, pname, pprice, pemoji);
     });
