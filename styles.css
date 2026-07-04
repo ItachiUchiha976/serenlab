@@ -617,3 +617,112 @@ p  { color:var(--text-med); line-height:1.75; }
   .values-grid     { grid-template-columns:repeat(3,1fr); }
   .section         { padding:5.5rem 0; }
 }
+
+/* ================================================
+   TEST SOMMEIL (quiz) + ARTICLES SEO — ajout 05/07/2026
+   ================================================ */
+
+/* ---- Teaser quiz (accueil) ---- */
+.quiz-teaser { background:linear-gradient(135deg, var(--bleu-pale) 0%, var(--beige-pale) 100%); }
+.quiz-teaser-card {
+  background:#fff; border-radius:var(--r2); padding:2.25rem 1.75rem;
+  box-shadow:var(--shadow); text-align:center; max-width:640px; margin:0 auto;
+}
+.quiz-teaser-icon { font-size:2.5rem; margin-bottom:.75rem; }
+
+/* ---- Quiz app (test-sommeil) ---- */
+.quiz-card {
+  background:#fff; border-radius:var(--r2); padding:2rem 1.5rem;
+  box-shadow:var(--shadow); max-width:640px; margin:0 auto;
+}
+.quiz-progress-track { height:8px; background:var(--border); border-radius:50px; overflow:hidden; margin-bottom:1.75rem; }
+.quiz-progress-bar { height:100%; background:var(--bleu); border-radius:50px; transition:width .3s ease; width:6%; }
+.quiz-step-label {
+  font-size:.78rem; font-weight:700; color:var(--text-light);
+  text-transform:uppercase; letter-spacing:.05em; margin-bottom:.6rem;
+}
+.quiz-question { font-family:var(--f-title); font-size:1.2rem; margin-bottom:1.4rem; }
+.quiz-options { display:flex; flex-direction:column; gap:.7rem; margin-bottom:1.5rem; }
+.quiz-option {
+  display:flex; align-items:center; gap:.75rem; text-align:left; width:100%;
+  padding:.95rem 1.1rem; border:2px solid var(--border); border-radius:var(--r);
+  background:var(--creme); cursor:pointer; font-family:var(--f-body);
+  font-size:.9rem; color:var(--text-dark); transition:all var(--t); min-height:44px;
+}
+.quiz-option:hover { border-color:var(--bleu-clair); background:var(--bleu-pale); }
+.quiz-option.selected { border-color:var(--bleu); background:var(--bleu-pale); font-weight:600; }
+.quiz-option-emoji { font-size:1.25rem; flex-shrink:0; }
+.quiz-nav { display:flex; justify-content:space-between; align-items:center; gap:1rem; }
+.quiz-nav button[disabled] { opacity:.35; cursor:not-allowed; }
+.quiz-back-btn {
+  background:none; border:none; color:var(--text-med); font-size:.85rem;
+  cursor:pointer; font-family:var(--f-body); padding:.5rem;
+}
+.quiz-result-icon { font-size:3rem; margin-bottom:.5rem; text-align:center; }
+.quiz-result-title { text-align:center; margin-bottom:.4rem; }
+.quiz-result-sub { text-align:center; margin-bottom:1.5rem; font-size:.92rem; }
+.quiz-tips-list { list-style:disc; padding-left:1.3rem; margin-bottom:1.5rem; }
+.quiz-tips-list li { color:var(--text-med); font-size:.88rem; margin-bottom:.5rem; line-height:1.6; }
+.quiz-reco-label { font-size:.75rem; font-weight:700; color:var(--text-light); text-transform:uppercase; letter-spacing:.05em; margin-bottom:.6rem; }
+.quiz-reco-card {
+  display:flex; gap:1rem; align-items:center; background:var(--bg-light);
+  border-radius:var(--r); padding:1.1rem; margin-bottom:1.5rem;
+}
+.quiz-reco-card img { width:72px; height:72px; object-fit:cover; border-radius:10px; flex-shrink:0; }
+.quiz-reco-info { flex:1; min-width:0; }
+.quiz-reco-name { font-weight:700; font-size:.92rem; margin-bottom:.15rem; }
+.quiz-reco-price { color:var(--bleu); font-weight:700; font-size:.9rem; }
+.quiz-restart-btn {
+  display:block; margin:1.1rem auto 0; text-align:center; font-size:.85rem;
+  color:var(--text-med); text-decoration:underline; cursor:pointer;
+  background:none; border:none; font-family:var(--f-body);
+}
+
+/* ---- Capture PDF (formulaire dédié quiz) ---- */
+.quiz-capture { margin-top:1.75rem; padding-top:1.75rem; border-top:1px solid var(--border); }
+.quiz-capture h3 { font-family:var(--f-title); font-size:1.1rem; margin-bottom:.4rem; text-align:center; }
+.quiz-capture p { font-size:.88rem; text-align:center; margin-bottom:1rem; }
+.quiz-download-link {
+  display:inline-flex; align-items:center; gap:.5rem; margin-top:.25rem;
+}
+
+/* ---- Articles SEO (guide / rituel) ---- */
+.article-hero {
+  padding:3rem 0 2.25rem; text-align:center;
+  background:linear-gradient(135deg, var(--bg-light) 0%, var(--beige-pale) 100%);
+}
+.article-meta {
+  font-size:.78rem; color:var(--vert); font-weight:700; margin-bottom:.6rem;
+  text-transform:uppercase; letter-spacing:.05em;
+}
+.article-wrap { max-width:760px; margin:0 auto; padding:3rem 1.25rem 4rem; }
+.article-wrap h2 { font-size:clamp(1.2rem,3.4vw,1.45rem); margin-top:2.2rem; margin-bottom:.8rem; border-left:3px solid var(--bleu); padding-left:.7rem; }
+.article-wrap h3 { font-size:1.05rem; margin-top:1.4rem; margin-bottom:.5rem; }
+.article-wrap p { margin-bottom:1rem; font-size:.95rem; }
+.article-wrap ul { list-style:disc; padding-left:1.4rem; margin-bottom:1.1rem; }
+.article-wrap ul li { color:var(--text-med); font-size:.93rem; margin-bottom:.45rem; line-height:1.65; }
+.article-wrap ol { padding-left:1.4rem; margin-bottom:1.1rem; }
+.article-wrap ol li { color:var(--text-med); font-size:.93rem; margin-bottom:.55rem; line-height:1.65; }
+.callout-box {
+  background:var(--beige-pale); border-left:4px solid var(--beige);
+  border-radius:var(--r); padding:1.3rem 1.4rem; margin:1.5rem 0;
+  font-size:.9rem; color:var(--text-dark);
+}
+.callout-box p:last-child { margin-bottom:0; }
+.inline-product-card {
+  display:flex; gap:1rem; align-items:center; background:#fff;
+  border:1px solid var(--border); border-radius:var(--r2); padding:1.25rem;
+  margin:1.6rem 0; box-shadow:var(--shadow);
+}
+.inline-product-card img { width:80px; height:80px; object-fit:cover; border-radius:10px; flex-shrink:0; }
+.inline-product-info { flex:1; min-width:0; }
+.inline-product-info h4 { margin-bottom:.3rem; }
+.article-crosslinks { display:flex; flex-wrap:wrap; gap:.75rem; margin-top:.5rem; }
+.comparo-table { width:100%; border-collapse:collapse; font-size:.87rem; margin:1.2rem 0; }
+.comparo-table th, .comparo-table td { padding:.65rem .8rem; border:1px solid var(--border); text-align:left; }
+.comparo-table th { background:var(--bleu); color:#fff; font-weight:600; }
+.comparo-table tr:nth-child(even) td { background:var(--bg-light); }
+
+@media(min-width:640px){
+  .quiz-card { padding:2.5rem; }
+}

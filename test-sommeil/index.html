@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Test sommeil — Quel dormeur es-tu ? · SérénLab</title>
+  <meta name="description" content="Faites le test gratuit en 2 minutes : découvrez votre profil de dormeur et recevez votre routine du soir en PDF, avec des conseils honnêtes d'hygiène du sommeil.">
+  <meta property="og:title" content="Test sommeil — Quel dormeur es-tu ? · SérénLab">
+  <meta property="og:description" content="2 minutes, 9 questions : découvrez votre profil de dormeur et recevez votre routine du soir offerte en PDF.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://serenlabboutique.fr/test-sommeil/">
+  <meta property="og:image" content="https://serenlabboutique.fr/img/masque-bluetooth-real.jpg">
+  <link rel="canonical" href="https://serenlabboutique.fr/test-sommeil/">
+  <link rel="icon" type="image/svg+xml" href="../favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+
+<div class="topbar">
+  Livraison offerte en France — Livraison estimée 12 à 20 jours ouvrés &nbsp;·&nbsp;
+  <a href="../livraison.html">En savoir plus</a>
+</div>
+
+<header class="header">
+  <div class="container">
+    <div class="header__inner">
+      <a href="../index.html" class="logo">Sérén<em>Lab</em></a>
+      <nav aria-label="Navigation principale">
+        <ul class="nav-list">
+          <li><a href="../index.html" class="nav-link">Accueil</a></li>
+          <li><a href="../produit-masque-bluetooth.html" class="nav-link">Masque Bluetooth</a></li>
+          <li><a href="../produit-masque-led.html" class="nav-link">Masque LED</a></li>
+          <li><a href="../produit-gua-sha.html" class="nav-link">Gua Sha &amp; Roller</a></li>
+          <li><a href="index.html" class="nav-link active">Test sommeil</a></li>
+          <li><a href="../a-propos.html" class="nav-link">À propos</a></li>
+        </ul>
+      </nav>
+      <div class="header-actions">
+        <a href="../panier.html" class="cart-btn" aria-label="Panier">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/>
+            <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/>
+          </svg>
+          <span class="cart-count" style="display:none">0</span>
+        </a>
+        <button class="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
+      </div>
+    </div>
+  </div>
+</header>
+
+<nav class="mobile-menu">
+  <button class="mobile-menu__close">&#x2715;</button>
+  <a href="../index.html">Accueil</a>
+  <a href="../produit-masque-bluetooth.html">Masque Bluetooth Sommeil</a>
+  <a href="../produit-masque-led.html">Masque LED</a>
+  <a href="../produit-gua-sha.html">Gua Sha &amp; Roller Quartz</a>
+  <a href="../produit-masque-gel.html">Masque Gel Yeux</a>
+  <a href="index.html">🌙 Test sommeil</a>
+  <a href="../a-propos.html">À propos</a>
+  <a href="../cgv.html">CGV &amp; Mentions légales</a>
+  <a href="../livraison.html">Livraison &amp; Retours</a>
+</nav>
+
+<!-- HERO -->
+<section class="about-hero">
+  <div class="container" style="max-width:640px">
+    <div style="font-size:3rem;margin-bottom:1rem" aria-hidden="true">🌙</div>
+    <div class="breadcrumb" style="justify-content:center;display:flex;margin-bottom:.75rem"><a href="../index.html">Accueil</a> &rsaquo; Test sommeil</div>
+    <h1 style="margin-bottom:1rem">Quel dormeur es-tu ?</h1>
+    <p style="font-size:1.05rem;color:var(--text-med);max-width:520px;margin:0 auto">
+      9 questions, 2 minutes. Découvrez votre profil de dormeur, des conseils honnêtes adaptés, et recevez votre
+      routine du soir offerte en PDF.
+    </p>
+  </div>
+</section>
+
+<!-- QUIZ -->
+<section class="section" style="padding:2rem 0 4rem">
+  <div class="container" style="max-width:700px">
+
+    <!-- Ecran d'accueil -->
+    <div id="quiz-start" class="quiz-card quiz-start">
+      <div style="text-align:center">
+        <p style="font-size:.9rem;color:var(--text-med);margin-bottom:1.5rem">
+          Ce test est un outil ludique et informatif d'hygiène du sommeil — il ne remplace pas un avis médical.
+          Aucune de vos réponses n'est requise pour acheter quoi que ce soit : la recommandation produit en fin de
+          test reste totalement facultative.
+        </p>
+        <button type="button" id="quiz-launch" class="btn btn--primary btn--lg">Commencer le test</button>
+      </div>
+    </div>
+
+    <!-- Application du quiz -->
+    <div id="quiz-app" class="quiz-card" style="display:none">
+      <div class="quiz-step-label" id="quiz-step-label">Question 1 / 9</div>
+      <div class="quiz-progress-track"><div class="quiz-progress-bar" id="quiz-progress-bar"></div></div>
+      <div class="quiz-question" id="quiz-question"></div>
+      <div class="quiz-options" id="quiz-options"></div>
+      <div class="quiz-nav">
+        <button type="button" class="quiz-back-btn" id="quiz-back">&larr; Question précédente</button>
+      </div>
+    </div>
+
+    <!-- Resultat -->
+    <div id="quiz-result" class="quiz-card" style="display:none">
+      <div class="quiz-result-icon" id="result-icon"></div>
+      <h2 class="quiz-result-title" id="result-title"></h2>
+      <p class="quiz-result-sub" id="result-sub"></p>
+
+      <ul class="quiz-tips-list" id="result-tips"></ul>
+
+      <div class="quiz-reco-label" id="result-reco-label">Peut compléter votre rituel</div>
+      <div class="quiz-reco-card" id="result-reco-card">
+        <img id="result-reco-img" src="" alt="">
+        <div class="quiz-reco-info">
+          <div class="quiz-reco-name" id="result-reco-name"></div>
+          <div class="quiz-reco-price" id="result-reco-price"></div>
+        </div>
+        <a href="#" id="result-reco-link" class="btn btn--secondary" style="flex-shrink:0">Voir</a>
+      </div>
+
+      <!-- Capture email -> PDF -->
+      <div class="quiz-capture">
+        <h3>🎁 Recevez votre routine du soir en PDF</h3>
+        <p>10 gestes simples et honnêtes pour installer un vrai rituel du soir — gratuit, sans engagement.</p>
+        <form id="quiz-pdf-form" action="https://api.web3forms.com/submit" method="POST" class="email-form" style="max-width:420px;margin:0 auto">
+          <input type="hidden" name="access_key" value="d97a8c73-b827-48bb-b437-e053a73fdb7e">
+          <input type="hidden" name="subject" value="SérénLab — Routine du soir (test sommeil)">
+          <input type="hidden" name="from_name" value="SérénLab — Test sommeil">
+          <input type="hidden" name="source" value="quiz-test-sommeil">
+          <input type="hidden" name="marque" value="serenlab">
+          <input type="hidden" name="profil" id="quiz-profil-field" value="">
+          <input type="checkbox" name="botcheck" style="display:none !important" tabindex="-1" autocomplete="off">
+          <input type="email" name="email" id="quiz-email" placeholder="Ton email" required autocomplete="email" aria-label="Adresse email">
+          <button type="submit" class="btn btn--primary">Recevoir mon PDF</button>
+          <p class="capture-note">Pas de spam. Désinscription en 1 clic.</p>
+        </form>
+        <div id="quiz-pdf-success" style="display:none"></div>
+      </div>
+
+      <button type="button" class="quiz-restart-btn" id="quiz-restart">↺ Refaire le test</button>
+    </div>
+
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-logo">Sérén<em>Lab</em></div>
+        <p class="footer-desc">Votre rituel sommeil maison. Le masque Bluetooth qui diffuse vos sons Havre Sonore — et les accessoires pour compléter votre routine du soir, à des prix accessibles.</p>
+        <div class="footer-social">
+          <a href="https://www.youtube.com/@HavreSonore" target="_blank" rel="noopener" class="social-btn" aria-label="YouTube Havre Sonore">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-1.96C18.88 4 12 4 12 4s-6.88 0-8.6.46A2.78 2.78 0 0 0 1.46 6.42 29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58 2.78 2.78 0 0 0 1.94 1.97C5.12 20 12 20 12 20s6.88 0 8.6-.45a2.78 2.78 0 0 0 1.94-1.97A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58z"/><polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02" fill="#18293a"/></svg>
+          </a>
+        </div>
+      </div>
+      <div>
+        <div class="footer-col-title">Produits</div>
+        <nav class="footer-links">
+          <a href="../produit-masque-bluetooth.html">Masque Bluetooth</a>
+          <a href="../produit-gua-sha.html">Gua Sha &amp; Roller</a>
+          <a href="../produit-masque-gel.html">Masque Gel Yeux</a>
+          <a href="../produit-masque-led.html">Masque LED</a>
+        </nav>
+      </div>
+      <div>
+        <div class="footer-col-title">Aide</div>
+        <nav class="footer-links">
+          <a href="../livraison.html">Livraison &amp; retours</a>
+          <a href="index.html">Test sommeil (quiz gratuit)</a>
+          <a href="../cgv.html">CGV</a>
+          <a href="../cgv.html#mentions">Mentions légales</a>
+          <a href="../a-propos.html">À propos</a>
+          <a href="../politique-confidentialite.html">Confidentialité</a>
+        </nav>
+      </div>
+      <div>
+        <div class="footer-col-title">Notre univers</div>
+        <nav class="footer-links">
+          <a href="https://www.youtube.com/@HavreSonore" target="_blank" rel="noopener">Havre Sonore (YouTube)</a>
+          <a href="../guide-masque-sommeil-bluetooth/">Guide d'achat masque Bluetooth</a>
+          <a href="../rituel-du-soir/">10 conseils rituel du soir</a>
+        </nav>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p class="footer-copy">&copy; 2026 SérénLab. Tous droits réservés. Produits expédiés depuis nos fournisseurs internationaux.</p>
+      <p class="footer-copy">Les produits SérénLab ne sont pas des dispositifs médicaux. Ils ne diagnostiquent, ne traitent ni ne guérissent aucune maladie.</p>
+    </div>
+  </div>
+</footer>
+
+<script src="../app.js"></script>
+
+<!-- umami-start --><script defer src="https://cloud.umami.is/script.js" data-website-id="d0fa94fe-a108-4590-a465-8f0017569370"></script><!-- umami-end -->
+<script src="../bos-consent.js?v=3" defer></script>
+
+<script>
+/* BOS — Test sommeil : quiz autonome, ne touche pas a app.js (partage par tout le site). */
+(function () {
+  'use strict';
+
+  var QUESTIONS = [
+    { q: "Comment décririez-vous votre endormissement, la plupart des soirs ?",
+      opts: [
+        { t: "Je m'endors facilement avec une musique, un podcast ou un bruit de fond", e: "🎧", s: { bt: 2 } },
+        { t: "J'ai souvent les yeux fatigués ou irrités le soir", e: "😌", s: { gel: 2 } },
+        { t: "Le moindre bruit (rue, voisins, colocataire) me dérange", e: "🏙️", s: { sons: 2 } },
+        { t: "Mon esprit tourne, j'ai du mal à décrocher", e: "🌀", s: { guasha: 2 } },
+        { t: "Plutôt bien, juste quelques ajustements à faire", e: "😴", s: { solide: 2 } }
+      ] },
+    { q: "Le soir chez vous, l'ambiance sonore est plutôt…",
+      opts: [
+        { t: "Calme, mais j'aime meubler avec du son", e: "🎵", s: { bt: 1 } },
+        { t: "Ça dépend, mon vrai souci est ailleurs (yeux, stress)", e: "🤷", s: { gel: 1, guasha: 1 } },
+        { t: "Bruyante : rue passante, voisins, ronflements…", e: "🔊", s: { sons: 2 } },
+        { t: "Très calme, aucun souci de ce côté", e: "🤫", s: { solide: 1 } }
+      ] },
+    { q: "En fin de journée, vos yeux sont plutôt…",
+      opts: [
+        { t: "Normaux, sans souci particulier", e: "👀", s: { bt: 1, solide: 1 } },
+        { t: "Fatigués par les écrans ou le travail", e: "🖥️", s: { gel: 2 } },
+        { t: "Tendus, avec des tensions au niveau du visage", e: "😣", s: { guasha: 2 } },
+        { t: "Pas spécialement concernés par ce sujet", e: "🙂", s: { sons: 1 } }
+      ] },
+    { q: "Qu'est-ce qui vous empêche le plus souvent de dormir ?",
+      opts: [
+        { t: "L'envie de continuer à écouter quelque chose en s'endormant", e: "🎙️", s: { bt: 2 } },
+        { t: "Une gêne physique (yeux, tensions du visage)", e: "🤕", s: { gel: 1, guasha: 1 } },
+        { t: "Les bruits extérieurs que je ne maîtrise pas", e: "🚗", s: { sons: 2 } },
+        { t: "Le stress, les pensées qui n'arrêtent pas de tourner", e: "💭", s: { guasha: 2 } },
+        { t: "Rien de particulier, je dors plutôt bien", e: "✅", s: { solide: 2 } }
+      ] },
+    { q: "En voyage (avion, train, hôtel), votre plus gros souci pour dormir est…",
+      opts: [
+        { t: "Le bruit ambiant : j'ai besoin de musique pour m'isoler", e: "✈️", s: { bt: 2 } },
+        { t: "La lumière et la fatigue oculaire du trajet", e: "💡", s: { gel: 1 } },
+        { t: "Le bruit qu'on ne maîtrise pas (moteur, voisins d'hôtel)", e: "🏨", s: { sons: 1 } },
+        { t: "Le stress ou l'agitation liés au voyage", e: "😬", s: { guasha: 1 } },
+        { t: "Aucun souci particulier, je dors partout facilement", e: "😊", s: { solide: 1 } }
+      ] },
+    { q: "Juste avant de dormir, vous ressentez surtout…",
+      opts: [
+        { t: "L'envie de « meubler » le silence avec du son", e: "🎶", s: { bt: 1 } },
+        { t: "Une fatigue oculaire liée aux écrans ou à la lecture", e: "📱", s: { gel: 2 } },
+        { t: "De l'agacement face aux bruits qui vous entourent", e: "😤", s: { sons: 2 } },
+        { t: "Des tensions ou une forme d'anxiété", e: "😰", s: { guasha: 2 } },
+        { t: "Une détente naturelle, sans souci particulier", e: "🍃", s: { solide: 1 } }
+      ] },
+    { q: "Un rituel du soir idéal pour vous ressemblerait à…",
+      opts: [
+        { t: "Une playlist ou un podcast qui s'arrête tout seul", e: "🎧", s: { bt: 2 } },
+        { t: "Un masque frais sur les yeux pendant 5-10 minutes", e: "🧊", s: { gel: 2 } },
+        { t: "Un bruit blanc ou une machine à sons qui masque tout", e: "🌊", s: { sons: 2 } },
+        { t: "Un massage facial apaisant, une vraie routine de détente", e: "💆", s: { guasha: 2 } },
+        { t: "Pas besoin de rituel particulier, ça va déjà bien", e: "👍", s: { solide: 2 } }
+      ] },
+    { q: "Combien de fois par semaine avez-vous du mal à vous endormir ?",
+      opts: [
+        { t: "Rarement, mais j'aime avoir un fond sonore", e: "🌙", s: { bt: 1 } },
+        { t: "Quelques fois, lié à la fatigue visuelle", e: "😵", s: { gel: 1 } },
+        { t: "Souvent, à cause du bruit environnant", e: "📢", s: { sons: 1 } },
+        { t: "Souvent, à cause de mon mental qui s'emballe", e: "🧠", s: { guasha: 1 } },
+        { t: "Presque jamais", e: "💯", s: { solide: 2 } }
+      ] },
+    { q: "Qu'attendez-vous le plus d'un accessoire sommeil ?",
+      opts: [
+        { t: "Pouvoir écouter mes sons/musique sans écouteurs classiques", e: "🎧", s: { bt: 2 } },
+        { t: "Soulager mes yeux fatigués en fin de journée", e: "👁️", s: { gel: 2 } },
+        { t: "Couvrir les bruits parasites sans dépendre de mon téléphone", e: "📴", s: { sons: 2 } },
+        { t: "Un vrai moment de détente ritualisé, pas juste un gadget", e: "🕯️", s: { guasha: 2 } },
+        { t: "Rien de spécial, je suis déjà un bon dormeur", e: "🙌", s: { solide: 2 } }
+      ] }
+  ];
+
+  var PROFILES = {
+    bt: {
+      icon: "🎧", title: "Le Mélomane du Soir",
+      sub: "Vous vous endormez mieux avec un son en fond — musique, podcast ou sons d'ambiance. Le silence total n'est pas votre meilleur allié.",
+      tips: [
+        "Choisissez un son assez régulier, sans gros pics de volume (certains podcasts changent beaucoup d'intensité).",
+        "Programmez un arrêt automatique pour ne pas diffuser du son toute la nuit sans vous en rendre compte.",
+        "Gardez le volume bas : l'objectif est de masquer le silence, pas de couvrir un bruit fort."
+      ],
+      reco: { name: "Masque Bluetooth Sommeil", price: "39,00 €", img: "../img/masque-bluetooth-real.jpg", link: "../produit-masque-bluetooth.html" }
+    },
+    gel: {
+      icon: "😌", title: "Le Sensible Visuel",
+      sub: "Vos yeux sont souvent fatigués en fin de journée — écrans, lecture, luminosité. Un peu de fraîcheur ou de chaleur avant de dormir peut vous faire du bien.",
+      tips: [
+        "Faites une pause écran de 30 à 45 minutes avant de dormir pour reposer vos yeux.",
+        "Clignez des yeux plus souvent pendant la journée si vous passez beaucoup de temps devant un écran.",
+        "Un moment de fraîcheur sur les paupières fermées peut apaiser la sensation de fatigue oculaire du soir."
+      ],
+      reco: { name: "Masque Gel Yeux Chaud/Froid", price: "27,00 €", img: "../img/masque-gel-01.jpg", link: "../produit-masque-gel.html" }
+    },
+    sons: {
+      icon: "🏙️", title: "L'Urbain Bruyant",
+      sub: "Votre environnement sonore est votre principal obstacle : rue passante, voisins, ronflements. Un fond sonore choisi peut masquer ce que vous ne maîtrisez pas.",
+      tips: [
+        "Un bruit blanc ou un bruit rose constant masque souvent mieux les bruits parasites qu'un silence total.",
+        "Évitez de dépendre de votre téléphone toute la nuit pour diffuser du son (notifications, luminosité).",
+        "Une minuterie automatique évite de faire tourner un appareil inutilement toute la nuit."
+      ],
+      reco: { name: "Machine à Sons d'Ambiance", price: "49,90 €", img: "../img/machine-sons-01.jpg", link: "../produit-machine-sons.html" }
+    },
+    guasha: {
+      icon: "🌀", title: "Le Stressé du Soir",
+      sub: "Votre corps est prêt à dormir, mais votre esprit continue de tourner. Un vrai rituel de détente peut aider à faire retomber la tension.",
+      tips: [
+        "Un rituel de détente physique (étirements doux, respiration lente) aide à faire retomber la tension avant de dormir.",
+        "Noter sur un carnet ce qui vous trotte dans la tête peut aider à « vider l'esprit » avant de fermer les yeux.",
+        "Gardez un horaire de coucher régulier, même (et surtout) les soirs stressants."
+      ],
+      reco: { name: "Set Gua Sha + Roller Quartz Rose", price: "26,00 €", img: "../img/gua-sha-roller.jpg", link: "../produit-gua-sha.html" }
+    },
+    solide: {
+      icon: "😴", title: "Le Dormeur Solide",
+      sub: "Votre sommeil se porte plutôt bien — peu d'ajustements à faire. De quoi profiter d'une routine du soir simple pour préserver ce capital.",
+      tips: [
+        "Continuez à garder un horaire de sommeil régulier : c'est souvent la clé d'un bon sommeil durable.",
+        "Limitez les écrans juste avant de dormir pour préserver cette qualité de sommeil.",
+        "Si vous voulez aller plus loin sans nécessité, un petit rituel du soir peut rendre vos nuits encore plus agréables."
+      ],
+      reco: { name: "Masque Bluetooth Sommeil", price: "39,00 €", img: "../img/masque-bluetooth-real.jpg", link: "../produit-masque-bluetooth.html" }
+    }
+  };
+
+  var answers = new Array(QUESTIONS.length).fill(null);
+  var current = 0;
+
+  var elStart   = document.getElementById('quiz-start');
+  var elApp     = document.getElementById('quiz-app');
+  var elResult  = document.getElementById('quiz-result');
+  var elStepLbl = document.getElementById('quiz-step-label');
+  var elProgBar = document.getElementById('quiz-progress-bar');
+  var elQuestion= document.getElementById('quiz-question');
+  var elOptions = document.getElementById('quiz-options');
+  var elBack    = document.getElementById('quiz-back');
+
+  function renderQuestion(idx) {
+    var item = QUESTIONS[idx];
+    elStepLbl.textContent = 'Question ' + (idx + 1) + ' / ' + QUESTIONS.length;
+    elProgBar.style.width = Math.round(((idx) / QUESTIONS.length) * 100 + 6) + '%';
+    elQuestion.textContent = item.q;
+    elOptions.innerHTML = '';
+    item.opts.forEach(function (opt, oi) {
+      var btn = document.createElement('button');
+      btn.type = 'button';
+      btn.className = 'quiz-option' + (answers[idx] === oi ? ' selected' : '');
+      btn.innerHTML = '<span class="quiz-option-emoji" aria-hidden="true">' + opt.e + '</span><span>' + opt.t + '</span>';
+      btn.addEventListener('click', function () {
+        answers[idx] = oi;
+        if (idx < QUESTIONS.length - 1) {
+          current = idx + 1;
+          renderQuestion(current);
+        } else {
+          showResult();
+        }
+      });
+      elOptions.appendChild(btn);
+    });
+    elBack.disabled = idx === 0;
+  }
+
+  elBack.addEventListener('click', function () {
+    if (current > 0) { current--; renderQuestion(current); }
+  });
+
+  function computeProfile() {
+    var scores = { bt: 0, gel: 0, sons: 0, guasha: 0, solide: 0 };
+    answers.forEach(function (oi, qi) {
+      if (oi === null) return;
+      var s = QUESTIONS[qi].opts[oi].s || {};
+      Object.keys(s).forEach(function (k) { scores[k] = (scores[k] || 0) + s[k]; });
+    });
+    var order = ['bt', 'gel', 'sons', 'guasha', 'solide'];
+    var best = order[0];
+    order.forEach(function (k) { if (scores[k] > scores[best]) best = k; });
+    return best;
+  }
+
+  function showResult() {
+    var key = computeProfile();
+    var p = PROFILES[key];
+    elApp.style.display = 'none';
+    elResult.style.display = 'block';
+    document.getElementById('result-icon').textContent = p.icon;
+    document.getElementById('result-title').textContent = p.title;
+    document.getElementById('result-sub').textContent = p.sub;
+    var tipsEl = document.getElementById('result-tips');
+    tipsEl.innerHTML = '';
+    p.tips.forEach(function (t) {
+      var li = document.createElement('li');
+      li.textContent = t;
+      tipsEl.appendChild(li);
+    });
+    document.getElementById('result-reco-label').textContent =
+      key === 'solide' ? 'Facultatif, si vous voulez aller plus loin' : 'Peut compléter votre rituel (facultatif)';
+    document.getElementById('result-reco-img').src = p.reco.img;
+    document.getElementById('result-reco-img').alt = p.reco.name;
+    document.getElementById('result-reco-name').textContent = p.reco.name;
+    document.getElementById('result-reco-price').textContent = p.reco.price;
+    document.getElementById('result-reco-link').href = p.reco.link;
+    document.getElementById('quiz-profil-field').value = p.title;
+    try { if (window.umami) window.umami.track('quiz_sommeil_complete', { profil: key }); } catch (e) {}
+    window.scrollTo({ top: elResult.offsetTop - 90, behavior: 'smooth' });
+  }
+
+  document.getElementById('quiz-launch').addEventListener('click', function () {
+    elStart.style.display = 'none';
+    elApp.style.display = 'block';
+    current = 0;
+    renderQuestion(0);
+    try { if (window.umami) window.umami.track('quiz_sommeil_start'); } catch (e) {}
+  });
+
+  document.getElementById('quiz-restart').addEventListener('click', function () {
+    answers = new Array(QUESTIONS.length).fill(null);
+    current = 0;
+    elResult.style.display = 'none';
+    elStart.style.display = 'block';
+    window.scrollTo({ top: elStart.offsetTop - 90, behavior: 'smooth' });
+  });
+
+  /* Capture email dediee (formulaire hors app.js pour reveler le lien PDF) */
+  var pdfForm = document.getElementById('quiz-pdf-form');
+  pdfForm.addEventListener('submit', function (e) {
+    e.preventDefault();
+    var emailInput = document.getElementById('quiz-email');
+    var email = emailInput.value.trim();
+    if (!email || email.indexOf('@') === -1) {
+      if (window.showToast) window.showToast('Email invalide.');
+      return;
+    }
+    var btn = pdfForm.querySelector('button[type="submit"]');
+    var origText = btn.textContent;
+    btn.disabled = true; btn.textContent = 'Envoi…';
+
+    fetch(pdfForm.action || 'https://api.web3forms.com/submit', {
+      method: 'POST',
+      headers: { 'Accept': 'application/json' },
+      body: new FormData(pdfForm)
+    }).then(function (res) { return res.json().catch(function () { return {}; }); })
+      .then(function (data) {
+        pdfForm.style.display = 'none';
+        var box = document.getElementById('quiz-pdf-success');
+        box.style.display = 'block';
+        box.innerHTML = '<div class="form-success"><strong>Merci !</strong><br>Votre routine du soir vous attend juste ici :<br>' +
+          '<a href="routine-du-soir-serenlab.pdf" download class="btn btn--primary quiz-download-link" style="margin-top:.75rem">📄 Télécharger mon PDF</a></div>';
+        try { if (window.umami) window.umami.track('quiz_pdf_capture'); } catch (e) {}
+      }).catch(function () {
+        btn.disabled = false; btn.textContent = origText;
+        if (window.showToast) window.showToast('Connexion impossible. Réessayez dans un instant.');
+      });
+  });
+})();
+</script>
+
+</body>
+</html>
