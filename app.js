@@ -193,8 +193,8 @@ function initStickyCTA() {
   // sinon la section de capture email (peu importe le suffixe de son id : serenlab-vip,
   // serenlab-vip-gua, serenlab-vip-bt, serenlab-vip-gel...) — la barre doit s'afficher
   // et fonctionner sur TOUTES les fiches produit, pas seulement celles avec id="serenlab-vip".
-  const buyBtn = hero.querySelector('.product-ctas button[onclick*="addToCart("]')
-              || document.querySelector('.product-ctas button[onclick*="addToCart("]');
+  const buyBtn = hero.querySelector('.product-ctas button.add-to-cart-btn')
+              || document.querySelector('.product-ctas button.add-to-cart-btn');
   const vipSection = document.querySelector('[id^="serenlab-vip"]');
   const target = buyBtn || vipSection;
   if (!target) return;
