@@ -718,6 +718,7 @@ p  { color:var(--text-med); line-height:1.75; }
 .inline-product-info { flex:1; min-width:0; }
 .inline-product-info h4 { margin-bottom:.3rem; }
 .article-crosslinks { display:flex; flex-wrap:wrap; gap:.75rem; margin-top:.5rem; }
+.article-crosslinks .btn { white-space:normal; text-align:center; flex:1 1 240px; }
 .comparo-table { width:100%; border-collapse:collapse; font-size:.87rem; margin:1.2rem 0; }
 .comparo-table th, .comparo-table td { padding:.65rem .8rem; border:1px solid var(--border); text-align:left; }
 .comparo-table th { background:var(--bleu); color:#fff; font-weight:600; }
