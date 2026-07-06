@@ -268,17 +268,17 @@
 <script src="bos-consent.js?v=3" defer></script><script>
 // Miniatures cliquables
 (function(){
-  var main = document.querySelector('#main-product-img, .product-main-visual img, [class*="product-visual"] img, .product-gallery img, [class*=gallery] img');
-  var thumbs = document.querySelectorAll('.thumbnail img');
-  if (!main || thumbs.length === 0) return;
+  var main=document.querySelector("#main-product-img,.product-main-visual img,[class*=gallery] img");
+  var thumbs=document.querySelectorAll(".thumbnail img");
+  if(!main||thumbs.length===0)return;
   thumbs.forEach(function(t){
-    t.style.cursor = 'pointer';
-    t.parentElement.addEventListener('click', function(){
-      var tmp = main.src; main.src = t.src; t.src = tmp;
-      document.querySelectorAll('.thumbnail').forEach(function(el){ el.classList.remove('active'); });
-      t.parentElement.classList.add('active');
-      main.style.opacity = '0.4'; main.style.transition = 'opacity .15s ease';
-      setTimeout(function(){ main.style.opacity = '1'; }, 150);
+    t.style.cursor="pointer";
+    t.parentElement.addEventListener("click",function(){
+      var tmp=main.src;main.src=t.src;t.src=tmp;
+      document.querySelectorAll(".thumbnail").forEach(function(e){e.classList.remove("active")});
+      t.parentElement.classList.add("active");
+      main.style.opacity="0.4";main.style.transition="opacity .15s ease";
+      setTimeout(function(){main.style.opacity="1"},150);
     });
   });
 })();
