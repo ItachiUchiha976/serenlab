@@ -80,6 +80,16 @@
           <img src="img/masque-bluetooth-real.jpg" onclick="document.getElementById('mainImg').src=this.src" alt="Masque Bluetooth vue portée" style="width:64px;height:64px;object-fit:cover;border-radius:10px;cursor:pointer;border:2px solid rgba(0,0,0,.12)">
           <img src="img/masque-bluetooth-2.jpg" onclick="document.getElementById('mainImg').src=this.src" alt="Masque Bluetooth détail écouteurs plats" style="width:64px;height:64px;object-fit:cover;border-radius:10px;cursor:pointer;border:2px solid rgba(0,0,0,.12)">
         </div>
+      
+        <div class="thumbnails">
+          <div class="thumbnail active" style="position:relative;overflow:hidden;border-radius:10px;display:inline-block;width:72px;height:72px;margin:4px;">
+            <img src="img/masque-bluetooth-2.jpg" alt="Vue 2" loading="lazy" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover">
+          </div>
+          <div class="thumbnail" style="position:relative;overflow:hidden;border-radius:10px;display:inline-block;width:72px;height:72px;margin:4px;">
+            <img src="img/masque-bluetooth-real.png" alt="Vue 3" loading="lazy" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover">
+          </div>
+        </div>
+
       </div>
 
       <!-- Infos -->
@@ -493,9 +503,8 @@
 <!-- bos-delivery-window-end -->
 
 <!-- umami-start --><script defer src="https://cloud.umami.is/script.js" data-website-id="d0fa94fe-a108-4590-a465-8f0017569370"></script><!-- umami-end -->
-<script src="bos-consent.js?v=3" defer></script>
-<script>
-// Miniatures cliquables — swap image principale
+<script src="bos-consent.js?v=3" defer></script><script>
+// Miniatures cliquables
 (function(){
   var main = document.querySelector('#main-product-img, .product-main-visual img, [class*="product-visual"] img, .product-gallery img, [class*=gallery] img');
   var thumbs = document.querySelectorAll('.thumbnail img');
