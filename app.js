@@ -103,8 +103,17 @@ function renderCartPage() {
   `).join('');
 
   const subtotal  = cart.reduce((s, i) => s + i.price * i.qty, 0);
+  // -10% automatique sur le produit le plus cher
+  const maxPrice = cart.length > 0 ? Math.max(...cart.map(i => i.price)) : 0;
+  const discount = maxPrice * 0.10;
   const shipping  = 0;
-  const total     = subtotal + shipping;
+  const total     = subtotal - discount + shipping;
+
+  const promoEl = document.getElementById('cart-promo');
+  if (promoEl && discount > 0) {
+    promoEl.style.display = 'block';
+    promoEl.innerHTML = '🎉 -10% automatique sur le produit le + cher : -' + discount.toFixed(2).replace('.', ',') + ' €';
+  }
 
   const subEl   = document.getElementById('cart-subtotal');
   const shipEl  = document.getElementById('cart-shipping');
