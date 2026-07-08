@@ -105,11 +105,11 @@
         <div class="duo-offer" style="margin-bottom:1.2rem;padding:1rem 1.1rem;background:var(--beige-pale);border:2px solid var(--border);border-radius:var(--r)">
           <div style="font-weight:700;margin-bottom:.7rem;font-size:.92rem">Pour vous deux : un masque pour la maison, un pour les trajets</div>
           <div style="display:grid;grid-template-columns:1fr 1fr;gap:.65rem">
-            <div style="text-align:center;padding:.65rem .5rem;border:1px solid var(--border);border-radius:calc(var(--r) - 4px);background:#fff">
+            <div id="variant-single" style="text-align:center;padding:.65rem .5rem;border:2px solid var(--bleu);border-radius:calc(var(--r) - 4px);background:#fff;cursor:pointer" onclick="selectVariant('single')">
               <div style="font-size:.74rem;color:var(--text-light);margin-bottom:.2rem">1 masque</div>
               <div style="font-weight:700;font-size:1.1rem">39,00 €</div>
             </div>
-            <div style="text-align:center;padding:.65rem .5rem;border:2px solid var(--bleu);border-radius:calc(var(--r) - 4px);background:#fff">
+            <div id="variant-duo" style="text-align:center;padding:.65rem .5rem;border:1px solid var(--border);border-radius:calc(var(--r) - 4px);background:#fff;cursor:pointer" onclick="selectVariant('duo')">
               <div style="font-size:.74rem;color:var(--bleu);font-weight:700;margin-bottom:.2rem">Lot de 2 — Duo Voyage</div>
               <div style="font-weight:700;font-size:1.1rem">69,00 €</div>
               <div style="font-size:.7rem;color:var(--text-light)">soit 34,50 € l'unité</div>
