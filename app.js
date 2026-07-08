@@ -112,7 +112,7 @@ function renderCartPage() {
   const promoEl = document.getElementById('cart-promo');
   if (promoEl && discount > 0) {
     promoEl.style.display = 'block';
-    promoEl.innerHTML = '🎉 -10% automatique sur le produit le + cher : -' + discount.toFixed(2).replace('.', ',') + ' €';
+    promoEl.innerHTML = '🎉 -10% appliqué sur le produit le + cher';
   }
 
   const subEl   = document.getElementById('cart-subtotal');
