@@ -738,3 +738,7 @@ p  { color:var(--text-med); line-height:1.75; }
 @media(min-width:640px){
   .quiz-card { padding:2.5rem; }
 }
+
+.review-img { border-radius:12px; margin-bottom:12px; object-fit:cover; }
+.review-card { display:flex; flex-direction:column; align-items:center; text-align:center; }
+
