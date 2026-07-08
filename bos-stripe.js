@@ -49,14 +49,6 @@
     'protege-tibias-carbone':     'https://buy.stripe.com/bJe3cv9QT3732TUg3a5Vu0y',
     'cible-de-precision':         'https://buy.stripe.com/8x214n8MPdLH52218g5Vu0z',
     'buts-pop-up':                'https://buy.stripe.com/bJe3cv4wz5fb522bMU5Vu0A',
-    // Produits digitaux
-    'pack-bac-maths':             'https://buy.stripe.com/dRm7sL3svazv0LMg3a5Vu0B',
-    'controle-argent':            'https://buy.stripe.com/7sY3cv1knePLeCC2ck5Vu0C',
-    'maitriser-l-ia-guide':       'https://buy.stripe.com/14AbJ1aUXcHDcuueZ65Vu0D',
-    'mysteres-histoire':          'https://buy.stripe.com/5kQcN5e79dLH9ii04c5Vu0E',
-    'pack-budget':                'https://buy.stripe.com/00w7sL3sv4b7bqq9EM5Vu0F',
-    'discipline-30':              'https://buy.stripe.com/fZu9ATaUXePL1PQeZ65Vu0G',
-    'guide-coupe-du-monde-2026':  'https://buy.stripe.com/fZu28raUX4b73XY9EM5Vu0H',
   };
 
   // Normaliser un nom de produit pour le matching
@@ -103,13 +95,15 @@
                     document.getElementById('stripe-btn-container');
 
     if (!container) {
-      // Creer le conteneur a cote du PayPal
-      var paypalBtn = document.querySelector('.paypal-btn, #paypal-btn, [onclick*="bosPayPalCheckout"], button[onclick*="paypal"]');
-      if (paypalBtn && paypalBtn.parentNode) {
+      // Chercher un ancrage : priorité PayPal, sinon bouton add-cart, sinon h1
+      var anchor = document.querySelector('.paypal-btn, #paypal-btn, [onclick*="bosPayPalCheckout"], button[onclick*="paypal"]') ||
+                   document.querySelector('.btn-addcart, [data-add-cart]') ||
+                   document.querySelector('h1');
+      if (anchor && anchor.parentNode) {
         container = document.createElement('div');
         container.className = 'checkout-stripe';
         container.style.cssText = 'margin-top:12px;text-align:center;';
-        paypalBtn.parentNode.insertBefore(container, paypalBtn.nextSibling);
+        anchor.parentNode.insertBefore(container, anchor.nextSibling);
       }
     }
 
