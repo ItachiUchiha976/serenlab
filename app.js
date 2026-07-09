@@ -264,7 +264,12 @@ function initMobileMenu() {
   hamburger.addEventListener('click', () => {
     menu.classList.toggle('open');
     hamburger.classList.toggle('open');
-    document.body.style.overflow = menu.classList.contains('open') ? 'hidden' : '';
+    /* BOS 09/07/2026 — bloque défilement page robuste (mobile + desktop) */
+    var locked = menu.classList.contains('open');
+    document.body.style.overflow = locked ? 'hidden' : '';
+    document.documentElement.style.overflow = locked ? 'hidden' : '';
+    document.body.style.position = locked ? 'fixed' : '';
+    document.body.style.width = locked ? '100%' : '';
   });
 
   if (closeBtn) {
@@ -272,6 +277,9 @@ function initMobileMenu() {
       menu.classList.remove('open');
       hamburger.classList.remove('open');
       document.body.style.overflow = '';
+      document.documentElement.style.overflow = '';
+      document.body.style.position = '';
+      document.body.style.width = '';
     });
   }
 
@@ -280,6 +288,9 @@ function initMobileMenu() {
       menu.classList.remove('open');
       hamburger.classList.remove('open');
       document.body.style.overflow = '';
+      document.documentElement.style.overflow = '';
+      document.body.style.position = '';
+      document.body.style.width = '';
     });
   });
 }
