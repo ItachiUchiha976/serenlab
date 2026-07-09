@@ -155,10 +155,16 @@
         if (total <= 0) { alert('Ton panier est vide.'); return; }
         btn.textContent = '⏳ Redirection vers Stripe...';
         btn.disabled = true;
+        // Récupérer les IDs produits pour la génération de token ebook (BOS 09/07/2026)
+        var productIds = [];
+        try {
+          var cart = JSON.parse(localStorage.getItem('serenlab_cart') || '[]');
+          productIds = cart.map(function(i) { return i.id; });
+        } catch(e) {}
         fetch(STRIPE_API, {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ amount: total, currency: 'eur' }),
+          body: JSON.stringify({ amount: total, currency: 'eur', products: productIds }),
         })
         .then(function(r) { return r.json(); })
         .then(function(data) {
