@@ -167,10 +167,11 @@
 <script src="bos-consent.js?v=3" defer></script>
 <script>
 window.addEventListener('load', function(){
-  // BOS — ne compter "purchase" que si la visite vient bien d'un checkout PayPal
-  // lance depuis ce site (flag pose par bos-paypal.js), pas d'un chargement direct/bot.
+  // BOS 13/07/2026 — le parcours physique passe par Stripe (PayPal retire).
+  // On ne compte "purchase" que sur un vrai retour de checkout, jamais sur un refresh/bot.
   try {
-    if (window.umami && sessionStorage.getItem('bos_checkout_started') === '1') {
+    var fromStripe = /stripe\.com/i.test(document.referrer || '');
+    if (window.umami && (fromStripe || sessionStorage.getItem('bos_checkout_started') === '1')) {
       umami.track('purchase', {boutique:'serenlab'});
       sessionStorage.removeItem('bos_checkout_started');
     }

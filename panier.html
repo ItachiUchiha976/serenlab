@@ -80,10 +80,11 @@
       <div id="cart-summary" style="display:none">
         <div class="cart-summary">
           <h3 style="font-family:var(--f-title);font-size:1.2rem;margin-bottom:1rem">Récapitulatif</h3>
+          <!-- BOS 13/07/2026 : balises cassees reparees (le bandeau promo avait ete insere DANS le <span> du sous-total). -->
+          <div id="cart-promo" style="display:none;background:#f0fdf4;border:1px solid #bbf7d0;border-radius:12px;padding:12px 16px;margin-bottom:12px;text-align:center;font-size:14px;color:#166534;font-weight:600"></div>
           <div class="summary-row">
             <span>Sous-total</span>
-            <span <div id="cart-promo" style="display:none;background:#f0fdf4;border:1px solid #bbf7d0;border-radius:12px;padding:12px 16px;margin-bottom:12px;text-align:center;font-size:14px;color:#166534;font-weight:600"></div>
-        <p>Sous-total : <span id="cart-subtotal">>0,00 €</span>
+            <span id="cart-subtotal">0,00 €</span>
           </div>
           <div class="summary-row">
             <span>Livraison</span>
@@ -103,10 +104,10 @@
           </div>
         </div>
 
-        <!-- CHECKOUT PAYPAL -->
+        <!-- CHECKOUT CARTE BANCAIRE (Stripe) -->
         <div id="checkout-stub" class="checkout-stub">
           <h3>Finaliser ma commande</h3>
-          <p>Paiement 100% sécurisé par PayPal — carte bancaire acceptée (pas besoin de compte PayPal). Livraison offerte &bull; Satisfait ou remboursé 30 jours.</p>
+          <p>Paiement 100% sécurisé par carte bancaire. Livraison offerte &bull; Satisfait ou remboursé 30 jours.</p>
 
           <div style="display:flex;align-items:flex-start;gap:.6rem;margin:.25rem 0 1rem">
             <input type="checkbox" id="cgv-check" required style="margin-top:.2rem;flex-shrink:0;accent-color:var(--bleu)">
@@ -115,11 +116,11 @@
             </label>
           </div>
 
-          <button type="button" class="btn btn--primary btn--full btn-checkout" onclick="bosPayPalCheckout()">
-            Payer par PayPal
+          <button type="button" class="btn btn--primary btn--full btn-checkout" data-bos-cb onclick="bosCartCB(this)">
+            💳 Payer par carte bancaire
           </button>
           <p class="capture-note" style="text-align:center">
-            Redirection sécurisée vers PayPal &bull; Paiement par carte bancaire ou compte PayPal
+            Redirection vers notre page de paiement sécurisée (Stripe) &bull; Le montant débité est exactement le total affiché
           </p>
         </div>
 
@@ -131,7 +132,7 @@
       <div style="text-align:center">
         <div style="font-size:1.75rem;margin-bottom:.4rem">🔒</div>
         <div style="font-size:.82rem;font-weight:600;color:var(--text-dark)">Paiement sécurisé</div>
-        <div style="font-size:.75rem;color:var(--text-light)">PayPal &bull; Carte bancaire</div>
+        <div style="font-size:.75rem;color:var(--text-light)">Carte bancaire sécurisée</div>
       </div>
       <div style="text-align:center">
         <div style="font-size:1.75rem;margin-bottom:.4rem">🚚</div>
@@ -195,8 +196,6 @@
 </footer>
 
 <script src="app.js"></script>
-<script src="bos-paypal.js"></script>
-
 <!-- umami-start --><script defer src="https://cloud.umami.is/script.js" data-website-id="d0fa94fe-a108-4590-a465-8f0017569370"></script><!-- umami-end -->
 <script src="bos-consent.js?v=3" defer></script>
 <script src="bos-stripe.js"></script>

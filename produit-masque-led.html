@@ -148,10 +148,16 @@
             data-emoji="💡">
             Ajouter au panier
           </button>
+          <div class="checkout-stripe">
+            <button type="button" data-bos-cb data-bos-price="99" data-bos-key="masque-led-visage"
+              onclick="bosProductCB(this)" style="display:block;width:100%;max-width:420px;margin:12px auto 0;padding:14px 24px;background:#635BFF;color:#fff;border:none;border-radius:8px;font-weight:600;font-size:16px;cursor:pointer;text-align:center;">
+              💳 Acheter maintenant par carte — 99 €
+            </button>
+          </div>
           <a href="panier.html" class="btn btn--secondary btn--lg">Voir le panier</a>
         </div>
         <div id="bos-trust-mount"></div>
-        <p class="bos-reassurance" style="font-size:.78rem;color:var(--text-med);margin-top:.6rem">✔ Remboursé 30 jours &middot; ✔ Numéro de suivi fourni &middot; ✔ Paiement sécurisé PayPal</p>
+        <p class="bos-reassurance" style="font-size:.78rem;color:var(--text-med);margin-top:.6rem">✔ Remboursé 30 jours &middot; ✔ Numéro de suivi fourni &middot; ✔ Paiement sécurisé par carte bancaire</p>
 
         <div class="product-trust">
           <span class="trust-mini">
@@ -198,7 +204,7 @@
     <div class="vip-grid">
       <div class="vip-capture">
         <h3>Reste informé(e) des nouveautés</h3>
-        <p>Commande dès maintenant : paiement 100% sécurisé par PayPal (carte bancaire acceptée), livraison offerte. Inscris-toi aussi à la newsletter pour ne rien manquer de nos prochains produits sur le Masque LED.</p>
+        <p>Commande dès maintenant : paiement 100% sécurisé par carte bancaire, livraison offerte. Inscris-toi aussi à la newsletter pour ne rien manquer de nos prochains produits sur le Masque LED.</p>
         <form action="https://api.web3forms.com/submit" method="POST" class="web3-form email-form">
           <input type="hidden" name="access_key" value="d97a8c73-b827-48bb-b437-e053a73fdb7e">
           <input type="hidden" name="subject" value="SérénLab newsletter masque led">
@@ -328,7 +334,7 @@
       </div>
       <div class="faq-item">
         <button class="faq-q">Le paiement est-il sécurisé ?</button>
-        <div class="faq-a"><p>Oui. Le paiement passe par PayPal, avec la carte bancaire acceptée sans besoin de créer de compte, et un cryptage de bout en bout. Aucune donnée bancaire ne transite ni n'est stockée sur nos serveurs.</p></div>
+        <div class="faq-a"><p>Oui. le paiement passe par Stripe, avec la carte bancaire acceptée sans besoin de créer de compte, et un cryptage de bout en bout. Aucune donnée bancaire ne transite ni n'est stockée sur nos serveurs.</p></div>
       </div>
     </div>
   </div>
@@ -366,7 +372,7 @@
       <div class="faq-item">
         <button class="faq-q">Comment se passe la commande et le paiement ?</button>
         <div class="faq-a">
-          <p>Ajoutez le Masque LED 7 Couleurs à votre panier, puis cliquez sur « Payer ma commande ». Le paiement est 100% sécurisé par PayPal — la carte bancaire est acceptée, sans besoin de compte PayPal. Votre commande est ensuite expédiée sous 12 à 20 jours ouvrés depuis nos fournisseurs internationaux.</p>
+          <p>Ajoutez le Masque LED 7 Couleurs à votre panier, puis cliquez sur « Payer ma commande ». Le paiement est 100% sécurisé par carte bancaire sans créer de compte. Votre commande est ensuite expédiée sous 12 à 20 jours ouvrés depuis nos fournisseurs internationaux.</p>
         </div>
       </div>
     </div>
@@ -483,8 +489,6 @@
 </footer>
 
 <script src="app.js"></script>
-<script src="bos-paypal.js"></script>
-
 <!-- bos-delivery-window-start : fenetre de livraison datee (jours ouvres), purement additif, 0 impact checkout/Umami -->
 <script>
 (function () {
@@ -542,5 +546,6 @@
 
 <script src="bos-trust.js" defer></script>
 <script src="reviews-data.js" defer></script><script src="bos-reviews.js" defer></script>
+<script src="bos-stripe.js"></script>
 </body>
 </html>

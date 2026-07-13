@@ -144,6 +144,12 @@
             data-emoji="❄️">
             Ajouter au panier
           </button>
+          <div class="checkout-stripe">
+            <button type="button" data-bos-cb data-bos-price="27" data-bos-key="masque-gel-yeux"
+              onclick="bosProductCB(this)" style="display:block;width:100%;max-width:420px;margin:12px auto 0;padding:14px 24px;background:#635BFF;color:#fff;border:none;border-radius:8px;font-weight:600;font-size:16px;cursor:pointer;text-align:center;">
+              💳 Acheter maintenant par carte — 27 €
+            </button>
+          </div>
           <a href="panier.html" class="btn btn--secondary btn--lg">Voir le panier</a>
         </div>
         <div id="bos-trust-mount"></div>
@@ -194,7 +200,7 @@
     <div class="vip-grid">
       <div class="vip-capture">
         <h3>Reste informé(e) des nouveautés</h3>
-        <p>Commande dès maintenant : paiement 100% sécurisé par PayPal (carte bancaire acceptée), livraison offerte. Inscris-toi aussi à la newsletter pour ne rien manquer de nos prochains produits.</p>
+        <p>Commande dès maintenant : paiement 100% sécurisé par carte bancaire, livraison offerte. Inscris-toi aussi à la newsletter pour ne rien manquer de nos prochains produits.</p>
         <form action="https://api.web3forms.com/submit" method="POST" class="web3-form email-form">
           <input type="hidden" name="access_key" value="d97a8c73-b827-48bb-b437-e053a73fdb7e">
           <input type="hidden" name="subject" value="SérénLab newsletter masque gel">
@@ -297,7 +303,7 @@
       </div>
       <div class="faq-item">
         <button class="faq-q">Le paiement est-il sécurisé ?</button>
-        <div class="faq-a"><p>Oui. Le paiement passe par PayPal, avec la carte bancaire acceptée sans besoin de créer de compte, et un cryptage de bout en bout. Aucune donnée bancaire ne transite ni n'est stockée sur nos serveurs.</p></div>
+        <div class="faq-a"><p>Oui. le paiement passe par Stripe, avec la carte bancaire acceptée sans besoin de créer de compte, et un cryptage de bout en bout. Aucune donnée bancaire ne transite ni n'est stockée sur nos serveurs.</p></div>
       </div>
     </div>
   </div>
@@ -349,8 +355,6 @@
 </footer>
 
 <script src="app.js"></script>
-<script src="bos-paypal.js"></script>
-
 <!-- umami-start --><script defer src="https://cloud.umami.is/script.js" data-website-id="d0fa94fe-a108-4590-a465-8f0017569370"></script><!-- umami-end -->
 <script src="bos-consent.js?v=3" defer></script><script>
 // Miniatures cliquables
@@ -372,5 +376,6 @@
 </script>
 
 <script src="bos-trust.js" defer></script>
+<script src="bos-stripe.js"></script>
 </body>
 </html>
