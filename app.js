@@ -105,9 +105,13 @@ function renderCartPage() {
   const subtotal  = cart.reduce((s, i) => s + i.price * i.qty, 0);
   // -10% automatique sur le produit le plus cher
   const maxPrice = cart.length > 0 ? Math.max(...cart.map(i => i.price)) : 0;
-  const discount = maxPrice * 0.10;
+  // BOS 13/07/2026 — remise arrondie au centime, calcul UNIQUE partage avec le checkout
+  // (bos-promo.js / bos-paypal.js / bos-stripe.js) : total affiche == total facture.
+  const discount = (window.BOS_PROMO && window.BOS_PROMO.discount)
+    ? window.BOS_PROMO.discount(cart)
+    : Math.round(maxPrice * 10) / 100;
   const shipping  = 0;
-  const total     = subtotal - discount + shipping;
+  const total     = Math.round((subtotal - discount + shipping) * 100) / 100;
 
   const promoEl = document.getElementById('cart-promo');
   if (promoEl && discount > 0) {
