@@ -425,7 +425,7 @@ p  { color:var(--text-med); line-height:1.75; }
 }
 .qty-btn:hover { background:var(--bg-light); }
 .qty-val { width:40px; text-align:center; font-weight:600; }
-.product-ctas { display:flex; flex-direction:column; gap:.75rem; margin-bottom:1.5rem; }
+.product-ctas { display:flex; flex-direction:column; flex-wrap:wrap; gap:.75rem; margin-bottom:1.5rem; }
 .product-trust {
   display:grid; grid-template-columns:1fr 1fr; gap:.6rem;
   padding:.9rem 1rem; background:var(--bg-light); border-radius:var(--r);
