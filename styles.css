@@ -395,6 +395,7 @@ p  { color:var(--text-med); line-height:1.75; }
 .product-hero { padding:3rem 0 2rem; background:var(--bg-light); }
 .product-hero-grid { display:grid; grid-template-columns:1fr; gap:2.5rem; align-items:start; }
 .product-visual {
+  position:relative;
   background:#fff; border-radius:var(--r2); padding:2.5rem;
   display:flex; flex-direction:column; align-items:center; justify-content:center;
   box-shadow:var(--shadow); min-height:280px;
@@ -747,4 +748,85 @@ p  { color:var(--text-med); line-height:1.75; }
 
 .review-img { border-radius:12px; margin-bottom:12px; object-fit:cover; }
 .review-card { display:flex; flex-direction:column; align-items:center; text-align:center; }
+
+/* ============================================================================
+   BOS — Animations thématiques fiches produit (16/07/2026)
+   SVG inline + CSS keyframes uniquement. Un conteneur par fiche, placé dans
+   .product-visual (position:relative ajouté ci-dessus).
+   ============================================================================ */
+.bos-anim-produit{
+  position: absolute;
+  top: .7rem; right: .7rem;
+  width: 72px; height: 72px;
+  z-index: 3;
+  pointer-events: none;
+  overflow: hidden;
+  border-radius: 50%;
+  background: rgba(255,255,255,.72);
+  box-shadow: 0 2px 12px rgba(74,134,168,.25);
+}
+.bos-anim-produit svg{ display:block; width:100%; height:100%; }
+@media(min-width:640px){ .bos-anim-produit{ width:92px; height:92px; } }
+@media (prefers-reduced-motion: reduce){
+  .bos-anim-produit *{ animation: none !important; }
+}
+
+/* --- Keyframes partagées --- */
+@keyframes bos-pulse-glow{ 0%,100%{ opacity:.55; transform:scale(1); } 50%{ opacity:.9; transform:scale(1.12); } }
+@keyframes bos-twinkle{ 0%,100%{ opacity:0; transform:scale(.3); } 50%{ opacity:1; transform:scale(1); } }
+
+/* --- 1. Masque Bluetooth Sommeil : dormeur + ZZZ qui montent + petite lune --- */
+.bos-moon-small{ transform-origin:74px 24px; animation:bos-pulse-glow 5s ease-in-out infinite; }
+.bos-z{ opacity:0; animation:bos-zzz-rise 4s ease-in infinite; }
+.bos-z--1{ animation-delay:0s; }
+.bos-z--2{ animation-delay:.9s; }
+.bos-z--3{ animation-delay:1.8s; }
+@keyframes bos-zzz-rise{
+  0%{ opacity:0; transform:translate(0,0) scale(.7); }
+  15%{ opacity:1; }
+  80%{ opacity:.15; }
+  100%{ opacity:0; transform:translate(6px,-14px) scale(1.15); }
+}
+
+/* --- 2. Masque LED 7 couleurs : glow pulsant multicolore --- */
+.bos-led{ transform-origin:center; animation:bos-led-pulse 2.4s ease-in-out infinite; }
+.bos-led--1{ animation-delay:0s; filter:drop-shadow(0 0 4px rgba(224,85,85,.8)); }
+.bos-led--2{ animation-delay:.4s; filter:drop-shadow(0 0 4px rgba(122,157,123,.8)); }
+.bos-led--3{ animation-delay:.8s; filter:drop-shadow(0 0 4px rgba(74,134,168,.8)); }
+@keyframes bos-led-pulse{ 0%,100%{ opacity:.35; transform:scale(.85); } 50%{ opacity:1; transform:scale(1.15); } }
+
+/* --- 3. Masque Gel chaud/froid : vagues alternées --- */
+.bos-wave{ transform-origin:center; animation:bos-wave-pulse 4s ease-in-out infinite; }
+.bos-wave--warm{ animation-delay:0s; }
+.bos-wave--cool{ animation-delay:2s; }
+@keyframes bos-wave-pulse{
+  0%{ opacity:.15; transform:scaleY(.7); }
+  20%{ opacity:1; transform:scaleY(1.15); }
+  40%,100%{ opacity:.15; transform:scaleY(.7); }
+}
+
+/* --- 4. Gua Sha + Roller Quartz : pierre qui glisse + scintille --- */
+.bos-stone-glide{ transform-origin:0 0; animation:bos-stone-glide 5s ease-in-out infinite; }
+@keyframes bos-stone-glide{
+  0%{ transform:translate(24px,60px) rotate(-8deg); }
+  50%{ transform:translate(70px,58px) rotate(6deg); }
+  100%{ transform:translate(24px,60px) rotate(-8deg); }
+}
+.bos-stone-spark{ transform-origin:center; animation:bos-twinkle 1.6s ease-in-out infinite; }
+
+/* --- 5. Lampe de lecture flexible : ampoule qui respire --- */
+.bos-bulb-glow{ transform-origin:50px 44px; animation:bos-pulse-glow 4s ease-in-out infinite; }
+
+/* --- 6. Machine sons d'ambiance : vagues sonores concentriques --- */
+.bos-sound-wave{ transform-origin:50px 50px; animation:bos-wave-out 3s ease-out infinite; opacity:0; }
+.bos-sound-wave--1{ animation-delay:0s; }
+.bos-sound-wave--2{ animation-delay:1s; }
+.bos-sound-wave--3{ animation-delay:2s; }
+@keyframes bos-wave-out{ 0%{ transform:scale(.3); opacity:.8; } 100%{ transform:scale(2.1); opacity:0; } }
+
+/* --- 7. Coussin cervical rafraîchissant : respiration calme + fraîcheur --- */
+.bos-breathe, .bos-breathe-fill{ transform-origin:50px 52px; animation:bos-breathe 6s ease-in-out infinite; }
+.bos-snow{ transform-origin:50px 52px; animation:bos-snow-pulse 6s ease-in-out infinite; }
+@keyframes bos-breathe{ 0%,100%{ opacity:.6; transform:scale(.82); } 50%{ opacity:1; transform:scale(1.08); } }
+@keyframes bos-snow-pulse{ 0%,100%{ opacity:.5; transform:scale(.82) rotate(0deg); } 50%{ opacity:1; transform:scale(1) rotate(10deg); } }
 
