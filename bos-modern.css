@@ -152,3 +152,26 @@ body.bos-atc-open { padding-bottom: 76px; }
 
 /* Pastille retractation au-dessus de la barre sticky ATC (conflit visuel attrape 16/07) */
 body.bos-atc-open #bos-retract-link{ bottom: 88px; }
+
+/* Typo descriptions — 17/07
+   Rend le paragraphe d'intro de fiche produit (.product-subtitle)
+   visuellement distinct du reste de la page : encart doux en Nunito
+   (police arrondie, ame "douceur / sommeil") sur fond bleu tres pale.
+   N'affecte QUE .product-subtitle — aucun texte modifie, uniquement
+   du CSS additif. Regle chargee apres styles.css (meme specificite,
+   ordre de source) => surcouche bien la regle de base ligne 407. */
+.product-subtitle {
+  font-family: 'Nunito', var(--f-body), sans-serif;
+  font-weight: 400;
+  font-size: 1.03rem;
+  line-height: 1.7;
+  color: var(--text-dark);
+  background: #EEF6FB;
+  border-left: 3px solid var(--bleu-clair);
+  border-radius: 14px;
+  padding: 1rem 1.25rem;
+  margin-bottom: 1.4rem;
+}
+.product-subtitle::first-line {
+  font-weight: 600;
+}
