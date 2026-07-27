@@ -410,7 +410,11 @@ p  { color:var(--text-med); line-height:1.75; }
   padding:1rem 1.25rem; background:#fff; border-radius:var(--r);
   border:1px solid var(--border);
 }
-.price-main { font-family:var(--f-title); font-size:2rem; font-weight:700; }
+/* BOS 27/07/2026 - le prix se cassait en deux lignes sur mobile ("39,00" puis "€" seul) :
+   .price-block est un flex et le bloc prix se retrecissait sous sa largeur naturelle.
+   Un prix coupe en deux est le pire endroit ou perdre la lisibilite sur une page de vente. */
+.price-main { font-family:var(--f-title); font-size:2rem; font-weight:700; white-space:nowrap; }
+.price-block > div:first-child { flex:0 0 auto; }
 .price-detail { font-size:.82rem; color:var(--text-med); }
 .price-detail strong { color:var(--vert); }
 .qty-row { display:flex; align-items:center; gap:1rem; margin-bottom:1.2rem; }
