@@ -42,7 +42,8 @@ body {
   background: var(--creme);
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
-  overflow-x: hidden; /* BOS — ceinture de securite anti-scroll horizontal mobile */
+  overflow-x: hidden;
+  overflow-x: clip; /* `hidden` casse position:sticky (barre promo + menu) — `clip` non */
 }
 img { max-width:100%; height:auto; display:block; }
 a   { color:inherit; text-decoration:none; }
